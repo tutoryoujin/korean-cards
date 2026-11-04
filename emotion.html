@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>한국어 감정 카드 (Korean Emotion Cards)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #EEF1F8;
+  --ink: #26304A;
+  --muted: #6B7590;
+  --surface: #FFFFFF;
+  --line: #D8DEEB;
+  --primary: #3550C8;
+  --primary-ink: #FFFFFF;
+  --shadow: 0 14px 30px -12px rgba(38, 48, 74, .28);
+
+  --joy-bg: #FFE9A8;   --joy-ink: #6A4A00;
+  --love-bg: #FFD3E2;  --love-ink: #8A1F4C;
+  --calm-bg: #CDEFE2;  --calm-ink: #1F5E48;
+  --sad-bg: #CFE0FA;   --sad-ink: #1F4A86;
+  --anger-bg: #FFD2C4; --anger-ink: #8A2E14;
+  --fear-bg: #E2DAFA;  --fear-ink: #4B3A8C;
+
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161A24; --ink: #E8ECF5; --muted: #9AA3BA; --surface: #222838; --line: #343B4E;
+    --primary: #7C93FF; --primary-ink: #10142A;
+    --shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
+    --joy-bg: #4A3B12;   --joy-ink: #FFDF8A;
+    --love-bg: #4E2234;  --love-ink: #FFB8D0;
+    --calm-bg: #173F33;  --calm-ink: #A6EBD2;
+    --sad-bg: #1D3150;   --sad-ink: #B4D0FF;
+    --anger-bg: #4D2418; --anger-ink: #FFB9A3;
+    --fear-bg: #2F2752;  --fear-ink: #D3C8FF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161A24; --ink: #E8ECF5; --muted: #9AA3BA; --surface: #222838; --line: #343B4E;
+  --primary: #7C93FF; --primary-ink: #10142A;
+  --shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
+  --joy-bg: #4A3B12;   --joy-ink: #FFDF8A;
+  --love-bg: #4E2234;  --love-ink: #FFB8D0;
+  --calm-bg: #173F33;  --calm-ink: #A6EBD2;
+  --sad-bg: #1D3150;   --sad-ink: #B4D0FF;
+  --anger-bg: #4D2418; --anger-ink: #FFB9A3;
+  --fear-bg: #2F2752;  --fear-ink: #D3C8FF;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Nunito", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  -webkit-user-select: none; user-select: none;
+}
+
+/* ---------- Mobile first ---------- */
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 16px 14px;
+}
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; }
+.title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif; font-size: 1.2rem; margin: 0; font-weight: 400; line-height: 1.15; }
+.title-en { display: block; font-family: "Nunito", sans-serif; font-weight: 700; font-size: .72rem; color: var(--muted); }
+.round-en { font-family: "Nunito", sans-serif; font-weight: 700; font-size: .72rem; color: var(--muted); margin-left: 2px; }
+.reset {
+  font: inherit; color: var(--muted);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  min-height: 40px; padding: 4px 14px; cursor: pointer;
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1;
+}
+.reset .ko { font-family: "Jua", sans-serif; font-size: .9rem; color: var(--ink); }
+.reset .en { font-size: .68rem; font-weight: 700; }
+
+.status { display: flex; align-items: center; gap: 10px; font-size: .85rem; color: var(--muted); font-weight: 700; }
+.round { font-family: "Jua", sans-serif; font-weight: 400; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.bar { flex: 1; height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--primary); border-radius: inherit; transition: width .3s ease; }
+
+/* Card */
+.stage { flex: 1; min-height: 0; display: grid; place-items: center; perspective: 1200px; }
+.card {
+  width: 100%; height: 100%; min-height: 260px;
+  border: 0; padding: 0; background: none; cursor: pointer; font: inherit; color: inherit;
+  position: relative; border-radius: 28px;
+  touch-action: pan-y;
+  transition: transform .22s ease, opacity .22s ease;
+}
+.card.dragging { transition: none; }
+.card:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+.inner {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.3, .7, .2, 1);
+}
+.card.flipped .inner { transform: rotateY(180deg); }
+.card.no-anim .inner { transition: none; }
+.face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px 20px 56px; text-align: center;
+}
+.front { background: var(--g-bg); color: var(--g-ink); }
+.back { background: var(--surface); color: var(--ink); transform: rotateY(180deg); border: 2px solid var(--g-bg); }
+
+.emoji { font-size: clamp(4.5rem, 24vw, 7rem); line-height: 1; margin-bottom: 16px; }
+.ko { font-family: "Jua", "Apple SD Gothic Neo", sans-serif; font-size: clamp(2.3rem, 12vw, 3.1rem); line-height: 1.15; }
+.hint { position: absolute; bottom: 16px; left: 0; right: 0; font-size: .78rem; font-weight: 700; opacity: .7; line-height: 1.4; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--g-bg); color: var(--g-ink);
+  font-family: "Jua", sans-serif; font-size: 1.05rem;
+  border-radius: 999px; padding: 5px 14px; margin-bottom: 20px;
+}
+.en { font-size: clamp(1.6rem, 8vw, 2.1rem); font-weight: 800; line-height: 1.2; margin: 0 0 12px; }
+.note { font-size: 1rem; line-height: 1.5; color: var(--muted); max-width: 28ch; margin: 0; }
+
+.card.leave-left { transform: translateX(-110%) rotate(-12deg); opacity: 0; }
+.card.leave-right { transform: translateX(110%) rotate(12deg); opacity: 0; }
+
+/* swipe feedback badges */
+.swipe-tag {
+  position: absolute; top: 18px; z-index: 2; pointer-events: none;
+  font-family: "Jua", sans-serif; font-size: 1rem; line-height: 1.1;
+  padding: 6px 12px; border-radius: 12px; border: 2px solid currentColor;
+  background: var(--surface); opacity: 0; text-align: center;
+}
+.swipe-tag small { display: block; font-family: "Nunito", sans-serif; font-weight: 800; font-size: .65rem; }
+.swipe-tag.miss { left: 16px; color: var(--anger-ink); transform: rotate(-8deg); }
+.swipe-tag.know { right: 16px; color: var(--primary); transform: rotate(8deg); }
+
+/* group colors */
+.g-joy   { --g-bg: var(--joy-bg);   --g-ink: var(--joy-ink); }
+.g-love  { --g-bg: var(--love-bg);  --g-ink: var(--love-ink); }
+.g-calm  { --g-bg: var(--calm-bg);  --g-ink: var(--calm-ink); }
+.g-sad   { --g-bg: var(--sad-bg);   --g-ink: var(--sad-ink); }
+.g-anger { --g-bg: var(--anger-bg); --g-ink: var(--anger-ink); }
+.g-fear  { --g-bg: var(--fear-bg);  --g-ink: var(--fear-ink); }
+
+/* Buttons — big thumb targets */
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 68px; padding: 10px 8px;
+  border-radius: 20px; cursor: pointer;
+  border: 2px solid var(--line); background: var(--surface); color: var(--ink);
+  transition: transform .08s ease;
+}
+.btn .ko { font-family: "Jua", "Apple SD Gothic Neo", sans-serif; font-size: 1.15rem; line-height: 1.2; }
+.btn .en { font-family: "Nunito", sans-serif; font-weight: 700; font-size: .78rem; opacity: .75; line-height: 1.2; }
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+.btn.known { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }
+.btn[disabled] { opacity: .4; cursor: default; }
+
+/* Result panel */
+.panel {
+  width: 100%; background: var(--surface); border-radius: 28px; box-shadow: var(--shadow);
+  padding: 32px 20px; text-align: center;
+}
+.panel .emoji { margin-bottom: 12px; }
+.panel h2 { font-family: "Jua", sans-serif; font-weight: 400; font-size: 1.8rem; margin: 0 0 4px; }
+.panel .sub-en { font-weight: 700; color: var(--muted); font-size: .9rem; margin: 0 0 14px; }
+.panel p { color: var(--muted); font-size: 1rem; line-height: 1.5; margin: 0 0 22px; }
+.p-en { display: block; margin-top: 4px; font-size: .88rem; font-weight: 700; opacity: .85; }
+.panel .btn { width: 100%; }
+.missed { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: -6px 0 22px; }
+.missed span { font-family: "Jua", sans-serif; font-size: .95rem; background: var(--g-bg); color: var(--g-ink); border-radius: 999px; padding: 4px 10px; }
+
+/* Celebration */
+.confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+.pop { display: inline-block; cursor: pointer; animation: pop .7s cubic-bezier(.2, 1.6, .4, 1) both, wiggle 1.2s ease-in-out .7s 2; }
+@keyframes pop {
+  0% { transform: scale(.2) rotate(-25deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-12deg) scale(1.08); }
+  75% { transform: rotate(12deg) scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pop { animation: none; }
+}
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 600px) {
+  .app { max-width: 440px; margin: 0 auto; padding: 24px 20px; gap: 16px; }
+  .title { font-size: 1.35rem; }
+  .card { max-height: 480px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner, .card, .bar > i { transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1 class="title" id="deckTitle">한국어 감정 카드<span class="title-en">Korean Emotion Cards</span></h1>
+    <button class="reset" id="resetBtn" type="button"><span class="ko">처음부터</span><span class="en">From the start</span></button>
+  </header>
+
+  <div class="status" aria-live="polite">
+    <span class="round" id="roundLabel">1회차 <span class="round-en">Round 1</span></span>
+    <div class="bar" aria-hidden="true"><i id="barFill"></i></div>
+    <span id="countLabel">1 / 20</span>
+  </div>
+
+  <main class="stage" id="stage"></main>
+
+  <div class="actions" id="actions">
+    <button class="btn" id="missBtn" type="button"><span class="ko">암기 못했어요</span><span class="en">Not memorized</span></button>
+    <button class="btn known" id="knowBtn" type="button"><span class="ko">암기했어요</span><span class="en">Memorized</span></button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   덱 데이터 — 새 주제는 DECKS에 같은 형식으로 추가하면 됩니다.
+   group: joy | love | calm | sad | anger | fear (카드 색상)
+   ============================================================ */
+const DECKS = {
+  emotions: {
+    title: "한국어 감정 카드",
+    cards: [
+      { id: "gippeoyo",     emoji: "😄", ko: "기뻐요",     en: "I’m glad",                 note: "Joy about something that happened.", group: "joy" },
+      { id: "haengbokhaeyo",emoji: "🥰", ko: "행복해요",   en: "I’m happy",                note: "A deeper, lasting kind of happiness.", group: "joy" },
+      { id: "joayo",        emoji: "😊", ko: "좋아요",     en: "I like it / It’s good",    note: "The all-purpose “good” feeling.", group: "joy" },
+      { id: "ppudeuthaeyo", emoji: "🏅", ko: "뿌듯해요",   en: "I feel proud",             note: "Satisfied with something you did.", group: "joy" },
+      { id: "seolleyo",     emoji: "🦋", ko: "설레요",     en: "I’m excited (fluttery)",   note: "Sweet anticipation, like before a date or a trip.", group: "love" },
+      { id: "dugeungeoryeoyo", emoji: "💓", ko: "두근거려요", en: "My heart is pounding",  note: "From excitement, love, or nerves.", group: "love" },
+      { id: "gamdong",      emoji: "🥹", ko: "감동이에요", en: "I’m touched / moved",      note: "When kindness or a story moves you.", group: "love" },
+      { id: "pyeonanhaeyo", emoji: "😌", ko: "편안해요",   en: "I feel at ease",           note: "Calm, comfortable, relaxed.", group: "calm" },
+      { id: "seulpeoyo",    emoji: "😢", ko: "슬퍼요",     en: "I’m sad",                  note: "General sadness.", group: "sad" },
+      { id: "oerowoyo",     emoji: "🥺", ko: "외로워요",   en: "I’m lonely",               note: "Missing people, feeling alone.", group: "sad" },
+      { id: "sseulsseulhaeyo", emoji: "🍂", ko: "쓸쓸해요", en: "I feel desolate / empty", note: "A quiet, empty feeling — often about a place or season.", group: "sad" },
+      { id: "seopseophaeyo",emoji: "😞", ko: "섭섭해요",   en: "I feel let down",          note: "Hurt because someone didn’t do what you hoped.", group: "sad" },
+      { id: "uulhaeyo",     emoji: "☁️", ko: "우울해요",   en: "I feel down / depressed",  note: "A heavy, gloomy mood.", group: "sad" },
+      { id: "hwanayo",      emoji: "😠", ko: "화나요",     en: "I’m angry",                note: "Clear, strong anger.", group: "anger" },
+      { id: "jjajeungnayo", emoji: "😤", ko: "짜증나요",   en: "I’m annoyed",              note: "Irritated by small things.", group: "anger" },
+      { id: "dapdaphaeyo",  emoji: "😮‍💨", ko: "답답해요", en: "I feel frustrated / stifled", note: "When things are stuck or you can’t get through.", group: "anger" },
+      { id: "museowoyo",    emoji: "😱", ko: "무서워요",   en: "I’m scared",               note: "Fear of something.", group: "fear" },
+      { id: "geokjeongdwaeyo", emoji: "😟", ko: "걱정돼요", en: "I’m worried",             note: "Anxious about what might happen.", group: "fear" },
+      { id: "ginjangdwaeyo",emoji: "😬", ko: "긴장돼요",   en: "I’m nervous",              note: "Before a test, interview, or speech.", group: "fear" },
+      { id: "bukkeureowoyo",emoji: "😳", ko: "부끄러워요", en: "I’m shy / embarrassed",    note: "Bashful, a little embarrassed.", group: "fear" }
+    ]
+  }
+};
+
+const DECK_ID = "emotions";
+const deck = DECKS[DECK_ID];
+const byId = Object.fromEntries(deck.cards.map(c => [c.id, c]));
+const STORE_KEY = "kcards:" + DECK_ID;
+
+const $ = id => document.getElementById(id);
+const stage = $("stage");
+const missBtn = $("missBtn"), knowBtn = $("knowBtn");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function freshState() {
+  return { queue: shuffle(deck.cards.map(c => c.id)), index: 0, round: 1, missed: [], learnedThisRound: 0, phase: "card" };
+}
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return null;
+    const s = JSON.parse(raw);
+    if (!Array.isArray(s.queue) || s.queue.some(id => !byId[id])) return null;
+    return s;
+  } catch (e) { return null; }
+}
+function save() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+let state = load() || freshState();
+let busy = false;
+
+function updateStatus() {
+  $("roundLabel").innerHTML = `${state.round}회차 <span class="round-en">Round ${state.round}</span>`;
+  const total = state.queue.length;
+  const shown = state.phase === "card" ? Math.min(state.index + 1, total) : total;
+  $("countLabel").textContent = shown + " / " + total;
+  const pct = state.phase === "card" ? (state.index / total) * 100 : 100;
+  $("barFill").style.width = pct + "%";
+  const onCard = state.phase === "card";
+  $("actions").style.visibility = onCard ? "visible" : "hidden";
+  missBtn.disabled = knowBtn.disabled = !onCard;
+}
+
+function renderCard() {
+  const c = byId[state.queue[state.index]];
+  stage.innerHTML = `
+    <button class="card g-${c.group}" id="card" type="button" aria-label="${c.ko}, 탭해서 뒤집기 / tap to flip">
+      <div class="swipe-tag miss" aria-hidden="true">암기 못했어요<small>Not memorized</small></div>
+      <div class="swipe-tag know" aria-hidden="true">암기했어요<small>Memorized</small></div>
+      <div class="inner">
+        <div class="face front">
+          <div class="emoji" aria-hidden="true">${c.emoji}</div>
+          <div class="ko">${c.ko}</div>
+          <div class="hint">탭해서 뒤집기, 옆으로 밀어서 넘기기<br>Tap to flip, swipe to move on</div>
+        </div>
+        <div class="face back" aria-hidden="true">
+          <div class="chip"><span>${c.emoji}</span>${c.ko}</div>
+          <p class="en">${c.en}</p>
+          <p class="note">${c.note}</p>
+        </div>
+      </div>
+    </button>`;
+  const card = $("card");
+  card.addEventListener("click", () => {
+    if (suppressClick) { suppressClick = false; return; }
+    flip();
+  });
+  attachSwipe(card);
+}
+
+/* Swipe: left = 암기 못했어요, right = 암기했어요 */
+let suppressClick = false;
+function attachSwipe(card) {
+  let startX = 0, startY = 0, dx = 0, active = false, dragging = false;
+  const miss = card.querySelector(".swipe-tag.miss");
+  const know = card.querySelector(".swipe-tag.know");
+  const THRESHOLD = Math.min(110, window.innerWidth * 0.25);
+
+  card.addEventListener("pointerdown", e => {
+    if (busy) return;
+    active = true; dragging = false; dx = 0;
+    startX = e.clientX; startY = e.clientY;
+  });
+  card.addEventListener("pointermove", e => {
+    if (!active) return;
+    dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (!dragging) {
+      if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy)) return;
+      dragging = true;
+      card.classList.add("dragging");
+      try { card.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    card.style.transform = `translateX(${dx}px) rotate(${dx / 18}deg)`;
+    const p = Math.min(Math.abs(dx) / THRESHOLD, 1);
+    miss.style.opacity = dx < 0 ? p : 0;
+    know.style.opacity = dx > 0 ? p : 0;
+  });
+  const end = () => {
+    if (!active) return;
+    active = false;
+    if (!dragging) return;
+    suppressClick = true;
+    setTimeout(() => { suppressClick = false; }, 50);
+    card.classList.remove("dragging");
+    if (Math.abs(dx) >= THRESHOLD) {
+      card.style.transform = "";
+      answer(dx > 0);
+    } else {
+      card.style.transform = "";
+      miss.style.opacity = know.style.opacity = 0;
+    }
+  };
+  card.addEventListener("pointerup", end);
+  card.addEventListener("pointercancel", end);
+}
+
+function flip() {
+  const card = $("card");
+  if (!card) return;
+  const flipped = card.classList.toggle("flipped");
+  card.querySelector(".front").setAttribute("aria-hidden", flipped);
+  card.querySelector(".back").setAttribute("aria-hidden", !flipped);
+}
+
+function renderRoundEnd() {
+  const done = state.missed.length === 0;
+  if (done) {
+    stage.innerHTML = `
+      <section class="panel">
+        <div class="emoji"><span class="pop" id="partyEmoji" role="button" aria-label="다시 축하하기 / Celebrate again">🎉</span></div>
+        <h2>모두 외웠어요!</h2>
+        <p class="sub-en">You memorized them all!</p>
+        <p>${state.round}회차 만에 감정 표현 ${deck.cards.length}개를 다 외웠어요.<span class="p-en">You memorized all ${deck.cards.length} emotion expressions in ${state.round} ${state.round === 1 ? "round" : "rounds"}.</span></p>
+        <button class="btn known" id="restartBtn" type="button"><span class="ko">처음부터 다시 하기</span><span class="en">Start again from the beginning</span></button>
+      </section>`;
+    $("restartBtn").addEventListener("click", restart);
+    $("partyEmoji").addEventListener("click", celebrate);
+    if (celebrateNext) { celebrateNext = false; setTimeout(celebrate, 150); }
+  } else {
+    const chips = state.missed.map(id => {
+      const c = byId[id];
+      return `<span class="g-${c.group}">${c.ko}</span>`;
+    }).join("");
+    stage.innerHTML = `
+      <section class="panel">
+        <div class="emoji" aria-hidden="true">💪</div>
+        <h2>${state.round}회차 끝!</h2>
+        <p class="sub-en">Round ${state.round} done!</p>
+        <p>이번에 ${state.learnedThisRound}개를 외웠어요. 아직 ${state.missed.length}개가 남았어요.<span class="p-en">You memorized ${state.learnedThisRound} this time. ${state.missed.length} still left.</span></p>
+        <div class="missed">${chips}</div>
+        <button class="btn known" id="nextRoundBtn" type="button"><span class="ko">남은 ${state.missed.length}개 다시 보기</span><span class="en">Review the ${state.missed.length} left</span></button>
+      </section>`;
+    $("nextRoundBtn").addEventListener("click", nextRound);
+  }
+}
+
+/* Confetti celebration */
+let celebrateNext = false;
+function celebrate() {
+  if (reduceMotion) return;
+  try { navigator.vibrate && navigator.vibrate([40, 60, 40]); } catch (e) {}
+  const cv = document.createElement("canvas");
+  cv.className = "confetti";
+  document.body.appendChild(cv);
+  const ctx = cv.getContext("2d");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const W = window.innerWidth, H = window.innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr; ctx.scale(dpr, dpr);
+
+  const colors = ["#FFC93C", "#FF7AA8", "#5ED3A8", "#6FA8FF", "#FF8A65", "#A98BFF"];
+  const emojis = ["🎉", "💖", "⭐", "🥰", "🦋", "🌸"];
+  const parts = [];
+  const make = (x, y, vx, vy) => {
+    const isEmoji = Math.random() < 0.14;
+    parts.push({
+      x, y, vx, vy,
+      w: 6 + Math.random() * 6, h: 10 + Math.random() * 8,
+      color: colors[(Math.random() * colors.length) | 0],
+      emoji: isEmoji ? emojis[(Math.random() * emojis.length) | 0] : null,
+      size: 20 + Math.random() * 10,
+      rot: Math.random() * Math.PI * 2, vr: (Math.random() - 0.5) * 0.3,
+      wob: Math.random() * Math.PI * 2
+    });
+  };
+  const G = 0.25, base = Math.sqrt(2 * G * H);
+  // two cannons from the bottom corners
+  [[0, 1], [W, -1]].forEach(([x, dir]) => {
+    for (let i = 0; i < 70; i++) {
+      const a = -Math.PI / 2 + dir * (0.12 + Math.random() * 0.55);
+      const sp = base * (0.7 + Math.random() * 0.4);
+      make(x, H + 10, Math.cos(a) * sp, Math.sin(a) * sp);
+    }
+  });
+  // gentle rain from the top
+  for (let i = 0; i < 40; i++) make(Math.random() * W, -20 - Math.random() * H * 0.5, (Math.random() - 0.5) * 2, 1 + Math.random() * 2);
+
+  const DURATION = 4200, FADE = 900;
+  const t0 = performance.now();
+  function tick(now) {
+    const t = now - t0;
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalAlpha = t > DURATION - FADE ? Math.max(0, (DURATION - t) / FADE) : 1;
+    for (const p of parts) {
+      p.vy = Math.min(p.vy + G, 5.5);
+      p.vx *= 0.985;
+      p.wob += 0.08;
+      p.x += p.vx + Math.sin(p.wob) * 0.6;
+      p.y += p.vy;
+      p.rot += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      if (p.emoji) {
+        ctx.font = p.size + "px sans-serif";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText(p.emoji, 0, 0);
+      } else {
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2 * Math.abs(Math.cos(p.wob)), p.w, p.h * Math.abs(Math.cos(p.wob)) + 1);
+      }
+      ctx.restore();
+    }
+    if (t < DURATION) requestAnimationFrame(tick); else cv.remove();
+  }
+  requestAnimationFrame(tick);
+}
+
+function render() {
+  updateStatus();
+  if (state.phase === "card") renderCard(); else renderRoundEnd();
+}
+
+function answer(known) {
+  if (busy || state.phase !== "card") return;
+  const id = state.queue[state.index];
+  if (known) state.learnedThisRound++; else state.missed.push(id);
+  state.index++;
+  if (state.index >= state.queue.length) {
+    state.phase = "end";
+    if (state.missed.length === 0) celebrateNext = true;
+  }
+  save();
+
+  const card = $("card");
+  if (card && !reduceMotion) {
+    busy = true;
+    card.classList.add(known ? "leave-right" : "leave-left");
+    setTimeout(() => { busy = false; render(); }, 220);
+  } else {
+    render();
+  }
+}
+
+function nextRound() {
+  state = { queue: shuffle(state.missed), index: 0, round: state.round + 1, missed: [], learnedThisRound: 0, phase: "card" };
+  save();
+  render();
+}
+
+function restart() {
+  state = freshState();
+  save();
+  render();
+}
+
+missBtn.addEventListener("click", () => answer(false));
+knowBtn.addEventListener("click", () => answer(true));
+$("resetBtn").addEventListener("click", () => {
+  if (confirm("진행 상황을 지우고 처음부터 시작할까요?\nClear your progress and start from the beginning?")) restart();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.target.closest && e.target.closest("button") && (e.key === " " || e.key === "Enter")) return;
+  if (state.phase !== "card") return;
+  if (e.key === " ") { e.preventDefault(); flip(); }
+  else if (e.key === "ArrowLeft") answer(false);
+  else if (e.key === "ArrowRight") answer(true);
+});
+
+render();
+</script>
+</body>
+</html>
