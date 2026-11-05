@@ -122,7 +122,7 @@ KC.register({
       ko: "남동생",
       en: "younger brother",
       group: "sibling",
-      note: "남(男) “male” + 동생. Everyone says it this way, man or woman.",
+      note: "남 “male” + 동생. Everyone says it this way, man or woman.",
       ex: { ko: "남동생은 고등학생이에요.", en: "My younger brother is a high school student." },
     },
     {
@@ -131,7 +131,7 @@ KC.register({
       ko: "여동생",
       en: "younger sister",
       group: "sibling",
-      note: "여(女) “female” + 동생. Same word for every speaker.",
+      note: "여 “female” + 동생. Same word for every speaker.",
       ex: { ko: "여동생이랑 같이 살아요.", en: "I live with my younger sister." },
     },
 
@@ -160,7 +160,7 @@ KC.register({
       en: "aunt (father’s sister)",
       group: "relative",
       note: "Father’s side. Korean splits aunts by side of the family — 이모 is the other one.",
-      ex: { ko: "고모는 선생님이세요.", en: "My aunt is a teacher." },
+      ex: { ko: "고모는 선생님이에요.", en: "My aunt is a teacher." },
     },
     {
       id: "sachon",
