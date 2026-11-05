@@ -2,6 +2,9 @@
    Layout — 사이트 공통 헤더/푸터 (홈, 출처 화면에서 사용)
    학습 화면은 카드에 집중하도록 헤더/푸터 없이 자체 상단바만 씀.
    ============================================================ */
+/* 형제 앱. 한쪽만 링크가 걸려 있으면 묶음이 아니라 외딴 페이지로 보인다. */
+const CALENDAR = "https://tutoryoujin.github.io/calendar-practice/";
+
 KC.siteHeader = function siteHeader(active) {
   const link = (href, key, ko, en) =>
     `<a href="${href}"${active === key ? ' class="active" aria-current="page"' : ""}>${ko}<small>${en}</small></a>`;
@@ -14,6 +17,7 @@ KC.siteHeader = function siteHeader(active) {
         </a>
         <nav class="site-nav" aria-label="메뉴 / Menu">
           ${link("#/", "home", "카드", "Decks")}
+          ${link(CALENDAR, "calendar", "달력", "Calendar")}
         </nav>
       </div>
     </header>`;
@@ -33,6 +37,7 @@ KC.siteFooter = function siteFooter() {
         </div>
         <nav class="foot-links" aria-label="푸터 메뉴 / Footer">
           <a href="#/">카드 목록 · Decks</a>
+          <a href="${CALENDAR}">한국어 달력 · Calendar</a>
           <a href="#/credits">이미지 출처 · Image credits</a>
         </nav>
         <p class="foot-legal">

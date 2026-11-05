@@ -38,6 +38,7 @@ KC.mountHome = function mountHome(root) {
           <div class="folder soon">
             <span class="folder-label">곧 추가돼요</span>
             <p class="folder-gloss">More decks coming soon</p>
+            <svg class="soon-art" aria-hidden="true"><use href="#ieung"/></svg>
           </div>
         </nav>
       </main>

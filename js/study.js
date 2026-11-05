@@ -155,7 +155,7 @@ KC.mountStudy = function mountStudy(root, deck) {
     if (state.missed.length === 0) {
       stage.innerHTML = `
         <section class="panel">
-          <div class="emoji"><span class="pop" data-act="party" role="button" aria-label="다시 축하하기 / Celebrate again">🎉</span></div>
+          <div class="panel-mascot"><span class="pop" data-act="party" role="button" tabindex="0" aria-label="다시 축하하기 / Celebrate again"><svg aria-hidden="true"><use href="#ieung"/></svg></span></div>
           <h2>모두 외웠어요!</h2>
           <p class="sub-en">You memorized them all!</p>
           <p>${r}회차 만에 ${esc(deck.unit.ko)} ${total}개를 다 외웠어요.<span class="p-en">You memorized all ${total} ${esc(deck.unit.en)} in ${r} ${r === 1 ? "round" : "rounds"}.</span></p>
