@@ -479,5 +479,13 @@ window.IMAGE_CREDITS = [
   "license": "MIT",
   "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
   "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Baby"
+ },
+ {
+  "key": "food/bowl",
+  "title": "Steaming bowl (3D)",
+  "author": "Microsoft",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji"
  }
 ];

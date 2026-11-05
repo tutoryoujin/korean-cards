@@ -1,58 +1,131 @@
 /* ============================================================
-   Tokens — 공용 팔레트 8색. 덱의 groups[].color 가 이 이름을 씀.
+   Tokens — "한국어 with Youjin" 디자인 시스템 v2 에서 복사.
+   https://claude.ai/artifact/C1LfGgisHTtDbmy7NyoUtF
+
+   여기서 고치지 말 것. 디자인 시스템에서 고친 뒤 다시 복사한다.
+   달력 앱(calendar-practice)도 같은 값을 쓴다 — 한쪽만 바꾸면 갈라진다.
    ============================================================ */
 :root {
-  --bg: #EEF1F8;
-  --ink: #26304A;
-  --muted: #6B7590;
-  --surface: #FFFFFF;
-  --line: #D8DEEB;
-  --primary: #3550C8;
-  --primary-ink: #FFFFFF;
-  --shadow: 0 14px 30px -12px rgba(38, 48, 74, .28);
+  /* 바탕과 글자 */
+  --bg: #f5f8ff;
+  --surface: #ffffff;
+  --ink: #1e2742;
+  --muted: #56618a;
+  --line: #c9d5f2;
+  --primary: #4356cf;
+  --primary-ink: #ffffff;
+  --sky: #d2e0fb;
+  --sky-ink: #23356f;
 
-  --yellow-bg: #FFE9A8;   --yellow-ink: #6A4A00;
-  --pink-bg: #FFD3E2;     --pink-ink: #8A1F4C;
-  --mint-bg: #CDEFE2;     --mint-ink: #1F5E48;
-  --blue-bg: #CFE0FA;     --blue-ink: #1F4A86;
-  --coral-bg: #FFD2C4;    --coral-ink: #8A2E14;
-  --lavender-bg: #E2DAFA; --lavender-ink: #4B3A8C;
-  --orange-bg: #FFDDB8;   --orange-ink: #7A3F00;
-  --gray-bg: #E1E5EE;     --gray-ink: #3A4560;
+  /* 악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다 */
+  --blue-bg: #9cb2eb;     --blue-ink: #17265e;
+  --pink-bg: #ffd0d2;     --pink-ink: #8a2535;
+  --yellow-bg: #f4e271;   --yellow-ink: #5f5300;
+  --mint-bg: #bdeace;     --mint-ink: #14543a;
+  --lavender-bg: #ddd4fb; --lavender-ink: #412b8c;
+  --coral-bg: #ffd0b8;    --coral-ink: #8a3714;
+  --orange-bg: #ffe2ad;   --orange-ink: #6f4206;
+  --gray-bg: #dde4f3;     --gray-ink: #333d5c;
+
+  /* 마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다 */
+  --ieung-body: #9cb2eb;
+  --ieung-limb: #7f97dd;
+  --ieung-face: #1e2742;
+  --ieung-blush: #ffd0d2;
+
+  /* 뜻 이름은 별칭이다. 여기에 hex 를 다시 적지 말 것 */
+  --ok-bg: var(--mint-bg);     --ok-ink: var(--mint-ink);
+  --bad-bg: var(--coral-bg);   --bad-ink: var(--coral-ink);
+
+  /* 글꼴 — Nunito 가 영문·숫자, Jua 가 한글을 맡는다 (한 스택에서 글자별로 분기) */
+  --font-app: "Nunito", "Jua", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-display: "Jua", "Nunito", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-reading: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+
+  /* 간격 */
+  --space-1: 4px;  --space-2: 6px;  --space-3: 8px;  --space-4: 10px; --space-5: 12px;
+  --space-6: 16px; --space-7: 20px; --space-8: 28px; --space-9: 36px;
+
+  /* 모서리 */
+  --radius-sm: 12px; --radius-md: 14px; --radius-lg: 22px; --radius-xl: 28px; --radius-full: 999px;
+
+  /* 그림자 — folder 는 위쪽으로 드리운다. 아래에서 끼워 넣은 인상을 만드는 건 이 방향이다 */
+  --shadow-card: 0 14px 30px -12px rgba(30, 39, 66, .22);
+  --shadow-folder: 0 -6px 16px -8px rgba(30, 39, 66, .28);
+  --folder-overlap: 16px;
 
   color-scheme: light;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+
+/* 다크는 세 상태를 전부 정의한다. @media 안에만 있는 색이 하나라도 있으면
+   사용자가 테마를 직접 고른 순간 그 색만 빠진다. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #161A24; --ink: #E8ECF5; --muted: #9AA3BA; --surface: #222838; --line: #343B4E;
-    --primary: #7C93FF; --primary-ink: #10142A;
-    --shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
-    --yellow-bg: #4A3B12;   --yellow-ink: #FFDF8A;
-    --pink-bg: #4E2234;     --pink-ink: #FFB8D0;
-    --mint-bg: #173F33;     --mint-ink: #A6EBD2;
-    --blue-bg: #1D3150;     --blue-ink: #B4D0FF;
-    --coral-bg: #4D2418;    --coral-ink: #FFB9A3;
-    --lavender-bg: #2F2752; --lavender-ink: #D3C8FF;
-    --orange-bg: #4A2E12;   --orange-ink: #FFC88A;
-    --gray-bg: #2C3344;     --gray-ink: #C9D0E0;
+    /* 바탕과 글자 */
+    --bg: #131a2c;
+    --surface: #1d2740;
+    --ink: #e7ecfb;
+    --muted: #97a3c6;
+    --line: #36426a;
+    --primary: #95a8ff;
+    --primary-ink: #0d1428;
+    --sky: #27365e;
+    --sky-ink: #c3d4fb;
+
+    /* 악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다 */
+    --blue-bg: #24335f;     --blue-ink: #b6c7ff;
+    --pink-bg: #4b2630;     --pink-ink: #ffbcc1;
+    --yellow-bg: #443c14;   --yellow-ink: #f2e48d;
+    --mint-bg: #17432f;     --mint-ink: #a3ebc6;
+    --lavender-bg: #2d2659; --lavender-ink: #cfc3ff;
+    --coral-bg: #4b2718;    --coral-ink: #ffbda2;
+    --orange-bg: #453112;   --orange-ink: #ffcf96;
+    --gray-bg: #2a3450;     --gray-ink: #c6cfe6;
+
+    /* 마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다 */
+    --ieung-body: #8095d4;
+    --ieung-limb: #6478b8;
+    --ieung-face: #141c33;
+    --ieung-blush: #e8a8ad;
+
+    --shadow-card: 0 14px 30px -12px rgba(0, 0, 0, .6);
+    --shadow-folder: 0 -6px 16px -8px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #161A24; --ink: #E8ECF5; --muted: #9AA3BA; --surface: #222838; --line: #343B4E;
-  --primary: #7C93FF; --primary-ink: #10142A;
-  --shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
-  --yellow-bg: #4A3B12;   --yellow-ink: #FFDF8A;
-  --pink-bg: #4E2234;     --pink-ink: #FFB8D0;
-  --mint-bg: #173F33;     --mint-ink: #A6EBD2;
-  --blue-bg: #1D3150;     --blue-ink: #B4D0FF;
-  --coral-bg: #4D2418;    --coral-ink: #FFB9A3;
-  --lavender-bg: #2F2752; --lavender-ink: #D3C8FF;
-  --orange-bg: #4A2E12;   --orange-ink: #FFC88A;
-  --gray-bg: #2C3344;     --gray-ink: #C9D0E0;
+  /* 바탕과 글자 */
+  --bg: #131a2c;
+  --surface: #1d2740;
+  --ink: #e7ecfb;
+  --muted: #97a3c6;
+  --line: #36426a;
+  --primary: #95a8ff;
+  --primary-ink: #0d1428;
+  --sky: #27365e;
+  --sky-ink: #c3d4fb;
+
+  /* 악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다 */
+  --blue-bg: #24335f;     --blue-ink: #b6c7ff;
+  --pink-bg: #4b2630;     --pink-ink: #ffbcc1;
+  --yellow-bg: #443c14;   --yellow-ink: #f2e48d;
+  --mint-bg: #17432f;     --mint-ink: #a3ebc6;
+  --lavender-bg: #2d2659; --lavender-ink: #cfc3ff;
+  --coral-bg: #4b2718;    --coral-ink: #ffbda2;
+  --orange-bg: #453112;   --orange-ink: #ffcf96;
+  --gray-bg: #2a3450;     --gray-ink: #c6cfe6;
+
+  /* 마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다 */
+  --ieung-body: #8095d4;
+  --ieung-limb: #6478b8;
+  --ieung-face: #141c33;
+  --ieung-blush: #e8a8ad;
+
+  --shadow-card: 0 14px 30px -12px rgba(0, 0, 0, .6);
+  --shadow-folder: 0 -6px 16px -8px rgba(0, 0, 0, .7);
   color-scheme: dark;
 }
 
@@ -105,7 +178,7 @@ button { font-family: inherit; letter-spacing: inherit; }
 }
 .pill .ko { font-weight: 700; font-size: .9rem; color: var(--ink); }
 .pill .en { font-size: .68rem; font-weight: 700; }
-.pill:focus-visible, .nav-back:focus-visible, .deck-tile:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+.pill:focus-visible, .nav-back:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 
 .nav-back {
   width: 40px; height: 40px; flex-shrink: 0;
@@ -130,24 +203,52 @@ button { font-family: inherit; letter-spacing: inherit; }
 }
 .site-header .site-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; min-width: 0; }
+/* 정사각 칸 + 정사각 symbol viewBox → preserveAspectRatio 가 손댈 일이 없다.
+   margin 으로 위치를 밀지 않는다 — 칸 크기가 바뀌는 순간 틀어진다. */
 .brand-mark {
-  width: 36px; height: 36px; flex-shrink: 0; border-radius: 11px;
-  display: grid; place-items: center;
-  background: var(--primary); color: var(--primary-ink);
-  font-weight: 800; font-size: 1.1rem; letter-spacing: 0;
-  box-shadow: 0 6px 14px -6px var(--primary);
+  display: block; width: 36px; height: 36px; flex-shrink: 0;
+  border-radius: var(--radius-full); background: var(--sky); overflow: hidden;
 }
-.brand-mark.sm { width: 32px; height: 32px; border-radius: 10px; font-size: 1rem; box-shadow: none; }
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+.brand-mark.sm { width: 32px; height: 32px; }
 .brand-text { font-weight: 800; font-size: 1.05rem; line-height: 1.1; white-space: nowrap; }
 .brand-text small { display: block; font-weight: 600; font-size: .7rem; color: var(--muted); letter-spacing: 0; }
-.site-nav { display: flex; gap: 4px; }
-.site-nav a {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  min-width: 52px; min-height: 44px; padding: 4px 10px; border-radius: 12px;
-  color: var(--muted); text-decoration: none; font-weight: 700; font-size: .9rem; line-height: 1.1;
+/* 햄버거 메뉴 — 달력 앱과 같은 모양 */
+.menu { position: relative; flex-shrink: 0; }
+.menu-btn {
+  width: 44px; height: 44px; padding: 0; cursor: pointer;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface);
+  display: grid; place-items: center;
 }
-.site-nav a small { font-size: .62rem; font-weight: 600; letter-spacing: 0; }
-.site-nav a.active { color: var(--primary); background: var(--surface); }
+.menu-btn .bars, .menu-btn .bars::before, .menu-btn .bars::after {
+  display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--ink);
+  transition: transform .2s ease, background .2s ease;
+}
+.menu-btn .bars { position: relative; }
+.menu-btn .bars::before, .menu-btn .bars::after { content: ""; position: absolute; left: 0; }
+.menu-btn .bars::before { top: -6px; }
+.menu-btn .bars::after { top: 6px; }
+/* 열리면 X 모양 */
+.menu-btn[aria-expanded="true"] .bars { background: transparent; }
+.menu-btn[aria-expanded="true"] .bars::before { transform: translateY(6px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] .bars::after { transform: translateY(-6px) rotate(-45deg); }
+.menu-btn:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+.site-nav {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 1;
+  min-width: 212px; padding: var(--space-2);
+  display: flex; flex-direction: column; gap: 2px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-card);
+}
+.site-nav a {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-5);
+  min-height: 44px; padding: var(--space-4) var(--space-5); border-radius: var(--radius-sm);
+  color: var(--ink); text-decoration: none; font-weight: 700; font-size: .95rem;
+}
+.site-nav a small { font-size: .7rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.site-nav a:hover { background: var(--bg); }
+.site-nav a.active { color: var(--primary); background: var(--bg); }
 .site-nav a:focus-visible, .brand:focus-visible, .foot-links a:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
 
 .site-footer {
@@ -167,37 +268,97 @@ button { font-family: inherit; letter-spacing: inherit; }
 .foot-legal { margin: 0; font-size: .74rem; }
 .foot-copy { margin: 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: .74rem; font-weight: 700; }
 
-.home { height: auto; gap: 18px; padding-top: 20px; }
+.home { height: auto; gap: var(--space-7); padding-top: var(--space-7); }
 .home-hero { padding: 4px 2px 0; }
 .home-hero h1 { font-weight: 800; letter-spacing: -0.03em; font-size: 1.55rem; margin: 0; line-height: 1.25; }
 .home-hero p { margin: 4px 0 0; color: var(--muted); font-weight: 700; font-size: .92rem; }
 
-.deck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.deck-tile {
-  display: flex; flex-direction: column;
-  background: var(--surface); color: var(--ink); text-decoration: none;
-  border-radius: 22px; overflow: hidden; box-shadow: var(--shadow);
-  transition: transform .12s ease;
+/* ---------- 덱 더미 ----------
+   덱 하나가 카드 한 장. 음수 마진으로 겹쳐 쌓는다.
+   overflow: hidden 이 이 컴포넌트의 핵심 — 겉면 그림이 이 모서리에 잘린다. */
+.folder {
+  position: relative; display: block; overflow: hidden;
+  color: var(--ink); text-decoration: none;
+  background: var(--g-bg); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-folder);
+  padding: var(--space-7);
+  /* 오른쪽은 겉면 그림 자리. 그림 폭(아래 .folder-art)과 같이 움직여야
+     좁은 화면에서 글자가 그림에 닿지 않는다. */
+  padding-right: clamp(136px, 42%, 168px);
+  /* 더미의 카드 높이는 전부 같다. 가장 긴 설명(두 줄) + 진행 막대가 들어가는 높이 */
+  min-height: 176px;
+  transition: transform .14s ease, box-shadow .14s ease;
 }
-.deck-tile:active { transform: scale(.98); }
-.deck-cover {
-  aspect-ratio: 4 / 3; background: var(--g-bg);
-  display: grid; place-items: center; overflow: hidden;
+.folder + .folder { margin-top: calc(var(--folder-overlap) * -1); }
+/* z-index 를 같이 올리지 않으면 아래 카드에 가려 안 올라온 것처럼 보인다 */
+.folder:hover, .folder:active, .folder:focus-visible { z-index: 2; }
+/* 포인터가 있는 기기에서만. 터치에서는 hover 가 눌린 채로 남는다 */
+@media (hover: hover) {
+  .folder:hover { transform: translateY(-6px); box-shadow: var(--shadow-folder), var(--shadow-card); }
 }
-.deck-cover img.photo { width: 100%; height: 100%; object-fit: cover; }
-.deck-cover img.icon { width: 58%; height: auto; }
-.deck-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-.deck-name { font-weight: 700; font-size: 1.12rem; line-height: 1.15; }
-.deck-name small { display: block; font-weight: 700; font-size: .72rem; color: var(--muted); }
-.deck-meta { margin-top: auto; display: flex; align-items: center; gap: 8px; font-size: .74rem; font-weight: 800; color: var(--muted); }
-.deck-meta .bar { height: 5px; }
+.folder:focus-visible { transform: translateY(-6px); outline: 3px solid var(--primary); outline-offset: 2px; }
+.folder:active { transform: translateY(-2px); }
 
-.soon {
-  border: 2px dashed var(--line); border-radius: 22px; color: var(--muted);
-  display: grid; place-items: center; text-align: center; padding: 18px 10px;
-  font-weight: 700; font-size: .8rem; line-height: 1.4;
+/* 제목은 알약 — 서류철에 붙이는 이름표다. 카드가 -bg 이므로 알약은 -ink 로
+   채우고 글자를 -bg 로 뺀다. 흰 알약은 파스텔 위에서 1.3:1 이라 안 보인다.
+   위아래 padding 이 다른 건 Jua 의 글자가 기준선보다 위에 쏠려 있어서다. */
+.folder-label {
+  display: inline-block; background: var(--g-ink); color: var(--g-bg);
+  font-family: var(--font-display); font-size: 1.2rem; line-height: 1;
+  padding: 11px 16px 9px; border-radius: var(--radius-full);
 }
-.soon b { display: block; font-weight: 700; font-size: 1rem; color: var(--ink); }
+/* 한글은 --font-app 의 두 번째 글꼴인 Jua 로 떨어진다. 둥근 서체라
+   .85rem 에서는 뭉쳐서, 본문보다 한 단계만 작게 둔다. */
+.folder-desc { margin: var(--space-5) 0 0; font-size: .92rem; font-weight: 700; line-height: 1.45; }
+/* 폴더 위에서는 muted 를 쓰지 않는다 — 파스텔 8색 중 넷이 4.5:1 에 못 미친다.
+   영문도 ink 로 두고 크기와 굵기로만 눌러 준다. */
+.folder-gloss { margin: var(--space-2) 0 0; font-size: .76rem; font-weight: 600; }
+
+.folder-bar {
+  margin-top: var(--space-5); width: 56%; height: 6px; border-radius: var(--radius-full);
+  background: var(--g-bg);
+  background: color-mix(in srgb, var(--g-ink) 22%, transparent);
+}
+.folder-bar > i { display: block; height: 100%; border-radius: inherit; background: var(--g-ink); }
+
+/* 겉면 그림 — 바탕 타일 없이 투명 PNG 를 그대로. 일부러 밖으로 밀어 내
+   카드 모서리가 잘라 주게 둔다. 잘리는 자리가 그림마다 달라서
+   같은 틀인데도 덱마다 다르게 보인다. */
+.folder-art {
+  position: absolute; right: -16px; bottom: -22px;
+  width: clamp(112px, 37%, 150px); height: auto;
+  pointer-events: none; -webkit-user-drag: none;
+}
+/* 이미지를 못 불러왔을 때의 대체 (core.js artFallback) */
+span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 14vw, 4.6rem); line-height: 1; }
+
+/* 바탕을 비우면 겹친 자리로 위 카드의 밑동이 비친다 — bg 로 덮는다 */
+.soon { background: var(--bg); border: 2px dashed var(--line); box-shadow: none; }
+/* 빈 자리에서는 이응이 겉면 그림 자리를 대신한다 */
+/* #ieung-wave 는 200x204 — 전신 심볼(192x204)보다 오른쪽이 넓다 */
+.soon-art { position: absolute; right: 10px; bottom: -14px; width: 86px; height: 88px; pointer-events: none; }
+
+/* 이응의 오른팔 — 어깨를 축으로 돌려서 손을 흔든다.
+   animation 이 없어도 이 rotate 만 남아 원래 자세 그대로다. */
+.ieung-wave {
+  transform-box: fill-box; transform-origin: 0% 50%;
+  transform: rotate(-38deg);
+  animation: ieung-wave 3s ease-in-out infinite;
+}
+/* 쉬는 자세(-38) 를 중심으로 좌우로 흔든다. 팔을 수직에 가깝게 들면
+   몸통에 가려 끝만 삐죽 나와서 인사로 안 읽힌다 — 보이는 팔 길이가
+   44 중 18 까지 줄어든다. -30~-62 사이면 23~28 이 남는다. */
+@keyframes ieung-wave {
+  0%, 36%, 100% { transform: rotate(-38deg); }
+  45% { transform: rotate(-62deg); }
+  54% { transform: rotate(-30deg); }
+  63% { transform: rotate(-62deg); }
+  72% { transform: rotate(-30deg); }
+  81% { transform: rotate(-58deg); }
+  92% { transform: rotate(-40deg); }
+}
+.soon .folder-label { background: var(--gray-bg); color: var(--gray-ink); }
+.soon .folder-gloss { color: var(--muted); }
 
 
 /* ============================================================
@@ -229,7 +390,7 @@ button { font-family: inherit; letter-spacing: inherit; }
   position: absolute; inset: 0;
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
   border-radius: 28px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-card);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 24px 20px 56px; text-align: center;
   overflow: hidden;
@@ -275,8 +436,10 @@ button { font-family: inherit; letter-spacing: inherit; }
   background: var(--surface); opacity: 0; text-align: center;
 }
 .swipe-tag small { display: block; font-weight: 800; font-size: .65rem; }
-.swipe-tag.miss { left: 16px; color: var(--coral-ink); transform: rotate(-8deg); }
-.swipe-tag.know { right: 16px; color: var(--primary); transform: rotate(8deg); }
+/* 라벨은 미는 방향의 반대편에 붙인다 — 카드가 빠져나가는 쪽에 두면
+   엄지에 가리고 화면 밖으로 밀려나서 안 보인다. */
+.swipe-tag.miss { right: 16px; color: var(--bad-ink); transform: rotate(8deg); }
+.swipe-tag.know { left: 16px; color: var(--primary); transform: rotate(-8deg); }
 
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .btn {
@@ -294,10 +457,19 @@ button { font-family: inherit; letter-spacing: inherit; }
 .btn[disabled] { opacity: .4; cursor: default; }
 
 .panel {
-  width: 100%; background: var(--surface); border-radius: 28px; box-shadow: var(--shadow);
+  width: 100%; background: var(--surface); border-radius: 28px; box-shadow: var(--shadow-card);
   padding: 32px 20px; text-align: center;
 }
 .panel .emoji { margin-bottom: 12px; }
+/* 완료 화면 — 이응이 sky 바닥 위에 선다. 눌러서 다시 축하하기 */
+.panel-mascot {
+  width: 148px; height: 112px; margin: 0 auto var(--space-5);
+  background: var(--sky); border-radius: var(--radius-xl); overflow: hidden;
+  display: grid; place-items: end center;
+}
+.panel-mascot .pop { display: block; cursor: pointer; }
+.panel-mascot svg { display: block; width: 104px; height: 111px; }
+.panel-mascot .pop:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: var(--radius-sm); }
 .panel h2 { font-weight: 700; font-size: 1.8rem; margin: 0 0 4px; }
 .panel .sub-en { font-weight: 700; color: var(--muted); font-size: .9rem; margin: 0 0 14px; }
 .panel p { color: var(--muted); font-size: 1rem; line-height: 1.5; margin: 0 0 22px; }
@@ -320,15 +492,9 @@ button { font-family: inherit; letter-spacing: inherit; }
 }
 
 /* ============================================================
-   Typography — 앱 전체는 귀여운 폰트, 카드는 Pretendard
-   --font-app : 영문 Nunito + 한글 Jua (한 스택에서 글자별로 자동 분기)
-   --font-card: Pretendard (카드 앞/뒷면)
+   Typography — 글꼴 토큰은 맨 위 :root 에 있다
    ============================================================ */
-:root {
-  --font-app: "Nunito", "Jua", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --font-card: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-}
-.card { font-family: var(--font-card); letter-spacing: -0.01em; font-synthesis: weight; }
+.card { font-family: var(--font-reading); letter-spacing: -0.01em; font-synthesis: weight; }
 .home-hero h1 { letter-spacing: 0; }
 .brand-text em, .foot-brand em { font-style: normal; font-size: .78em; color: var(--primary); }
 
@@ -354,12 +520,13 @@ button { font-family: inherit; letter-spacing: inherit; }
   .home, .credits { max-width: 640px; }
   .site-footer .site-inner { display: grid; grid-template-columns: 1fr auto; align-items: start; }
   .foot-legal, .foot-copy { grid-column: 1 / -1; }
-  .deck-grid { grid-template-columns: repeat(3, 1fr); }
   .title { font-size: 1.35rem; }
   .card { max-height: 520px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .inner, .card, .bar > i, .deck-tile { transition: none !important; }
+  .inner, .card, .bar > i, .folder { transition: none !important; }
+  .folder:hover, .folder:focus-visible, .folder:active { transform: none; }
   .pop { animation: none; }
+  .ieung-wave { animation: none; }
 }
