@@ -1,6 +1,6 @@
 KC.register({
   id: "food",
-  title: { ko: "한국 음식 카드", en: "Korean Food" },
+  title: { ko: "한국 음식", en: "Korean Food" },
   emoji: "🍜",
   cover: "bibimbap",
   color: "pink",

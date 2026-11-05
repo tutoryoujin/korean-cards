@@ -1,6 +1,6 @@
 KC.register({
   id: "family",
-  title: { ko: "가족 카드", en: "Family Words" },
+  title: { ko: "가족", en: "Family Words" },
   emoji: "👨‍👩‍👧‍👦",
   cover: "gajok",
   color: "yellow",

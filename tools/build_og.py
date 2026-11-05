@@ -41,9 +41,9 @@ ACCENT = {                       # -bg, -ink
 
 # 홈 더미와 같은 순서·같은 내용. (덱 폴더, 겉면 그림, 라벨, 한 줄 소개, 색)
 DECKS = [
-    ("emotions", "haengbokhaeyo", "감정 카드", "Emotions", "기쁘고 설레고 속상한 마음을 한국어로", "blue"),
-    ("food", "bowl", "한국 음식 카드", "Korean Food", "비빔밥부터 빙수까지, 먹고 싶은 것부터", "pink"),
-    ("family", "gajok", "가족 카드", "Family Words", "형과 오빠는 왜 다를까요", "yellow"),
+    ("emotions", "haengbokhaeyo", "감정", "Emotions", "기쁘고 설레고 속상한 마음을 한국어로", "blue"),
+    ("food", "bowl", "한국 음식", "Korean Food", "비빔밥부터 빙수까지, 먹고 싶은 것부터", "pink"),
+    ("family", "gajok", "가족", "Family Words", "형과 오빠는 왜 다를까요", "yellow"),
 ]
 
 CARD_W, CARD_H, RADIUS = 520, 180, 34
