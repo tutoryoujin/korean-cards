@@ -23,8 +23,8 @@ KC.mountStudy = function mountStudy(root, deck) {
       </div>
       <main class="stage" data-el="stage"></main>
       <div class="actions" data-el="actions">
-        <button class="btn" data-act="miss" type="button"><span class="ko">암기 못했어요</span><span class="en">Not memorized</span></button>
-        <button class="btn known" data-act="know" type="button"><span class="ko">암기했어요</span><span class="en">Memorized</span></button>
+        <button class="btn" data-act="miss" type="button"><span class="ko">못 외웠어요</span><span class="en">Not memorized</span></button>
+        <button class="btn known" data-act="know" type="button"><span class="ko">외웠어요</span><span class="en">Memorized</span></button>
       </div>
     </div>`;
 
@@ -75,8 +75,8 @@ KC.mountStudy = function mountStudy(root, deck) {
     const ex = c.ex ? `<p class="ex"><span class="ex-ko">${esc(c.ex.ko)}</span><span class="ex-en">${esc(c.ex.en)}</span></p>` : "";
     stage.innerHTML = `
       <button class="card c-${colorOf(deck, c)}" type="button" aria-label="${esc(c.ko)}, 탭해서 뒤집기 / tap to flip">
-        <div class="swipe-tag miss" aria-hidden="true">암기 못했어요<small>Not memorized</small></div>
-        <div class="swipe-tag know" aria-hidden="true">암기했어요<small>Memorized</small></div>
+        <div class="swipe-tag miss" aria-hidden="true">못 외웠어요<small>Not memorized</small></div>
+        <div class="swipe-tag know" aria-hidden="true">외웠어요<small>Memorized</small></div>
         <div class="inner">
           <div class="face front${photo ? " photo" : ""}">
             ${artHtml(c, photo ? "art-photo" : "art-icon")}
@@ -100,7 +100,7 @@ KC.mountStudy = function mountStudy(root, deck) {
     preloadNext();
   }
 
-  /* Swipe: left = 암기 못했어요, right = 암기했어요 */
+  /* Swipe: left = 못 외웠어요, right = 외웠어요 */
   function attachSwipe(cardEl) {
     let startX = 0, startY = 0, dx = 0, active = false, dragging = false;
     const miss = cardEl.querySelector(".swipe-tag.miss");
