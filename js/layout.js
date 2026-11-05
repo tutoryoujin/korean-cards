@@ -15,10 +15,17 @@ KC.siteHeader = function siteHeader(active) {
           <span class="brand-mark" aria-hidden="true"><svg><use href="#ieung-mark"/></svg></span>
           <span class="brand-text">한국어 카드 <em>with Youjin</em><small>Korean Word Cards</small></span>
         </a>
-        <nav class="site-nav" aria-label="메뉴 / Menu">
-          ${link("#/", "home", "카드", "Decks")}
-          ${link(CALENDAR, "calendar", "달력", "Calendar")}
-        </nav>
+        <div class="menu">
+          <button class="menu-btn" type="button" aria-label="메뉴 열기 / Open menu"
+                  aria-expanded="false" aria-controls="siteNav">
+            <span class="bars" aria-hidden="true"></span>
+          </button>
+          <nav class="site-nav" id="siteNav" aria-label="메뉴 / Menu" hidden>
+            ${link("#/", "home", "카드", "Cards")}
+            ${link(CALENDAR, "calendar", "한국어 달력", "Korean Calendar")}
+            ${link("#/credits", "credits", "이미지 출처", "Image credits")}
+          </nav>
+        </div>
       </div>
     </header>`;
 };
@@ -48,3 +55,34 @@ KC.siteFooter = function siteFooter() {
       </div>
     </footer>`;
 };
+
+/* ============================================================
+   햄버거 메뉴 — 달력 앱과 같은 모양.
+   화면을 innerHTML 로 통째로 다시 그리므로 버튼에 직접 걸지 않고
+   document 에 한 번만 걸어 둔다.
+   ============================================================ */
+(() => {
+  const nav = () => document.getElementById("siteNav");
+  const btn = () => document.querySelector(".menu-btn");
+
+  function setMenu(open) {
+    const n = nav(), b = btn();
+    if (!n || !b) return;
+    b.setAttribute("aria-expanded", String(open));
+    b.setAttribute("aria-label", open ? "메뉴 닫기 / Close menu" : "메뉴 열기 / Open menu");
+    n.hidden = !open;
+  }
+
+  document.addEventListener("click", e => {
+    const n = nav();
+    if (!n) return;
+    if (e.target.closest(".menu-btn")) { setMenu(n.hidden); return; }
+    // 메뉴 안의 링크를 눌러도 닫는다 — 해시 라우팅이라 페이지가 다시 로드되지 않는다
+    if (!n.hidden) setMenu(false);
+  });
+
+  document.addEventListener("keydown", e => {
+    const n = nav();
+    if (e.key === "Escape" && n && !n.hidden) { setMenu(false); btn() && btn().focus(); }
+  });
+})();
