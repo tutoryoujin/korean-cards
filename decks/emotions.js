@@ -3,6 +3,8 @@ KC.register({
   title: { ko: "감정 카드", en: "Emotions" },
   emoji: "😊",
   cover: "haengbokhaeyo",
+  color: "blue",                 // 홈 더미에서 이 덱의 색
+  blurb: "기쁘고 설레고 속상한 마음을 한국어로",
   unit: { ko: "감정 표현", en: "emotion expressions" },
   art: "icon",
   groups: {

@@ -10,6 +10,9 @@ window.KC = (() => {
    * Deck shape
    * {
    *   id, title: {ko, en}, emoji, cover: "<cardId>",
+   *   color: "<palette name>",               // 홈 더미에서 이 덱의 색
+   *   blurb: "<한 줄 소개>",                 // 홈 더미 설명. 두 줄을 넘기지 않는다
+   *   folderArt: "<imgId>",                  // 겉면 그림. 없으면 cover. 반드시 투명 배경
    *   unit: {ko, en},                        // 완료 문구: "감정 표현 20개"
    *   art: "icon" | "photo",                 // img/<deckId>/<cardId>.webp
    *   groups: { key: {ko, en, color} },      // color = palette name (css/app.css)
@@ -51,6 +54,8 @@ window.KC = (() => {
   }
 
   const imgSrc = (deck, card) => `img/${deck.id}/${card.id}.webp`;
+  /** 홈 더미 겉면 그림. 사진은 잘라 내면 그냥 잘린 사진으로 보이므로 투명 아이콘만 쓴다 */
+  const folderArt = deck => `img/${deck.id}/${deck.folderArt || deck.cover}.webp`;
   const colorOf = (deck, card) => (deck.groups[card.group] && deck.groups[card.group].color) || "gray";
 
   const esc = s => String(s ?? "").replace(/[&<>"']/g, ch =>
@@ -61,7 +66,8 @@ window.KC = (() => {
     const emoji = img.dataset.emoji;
     if (!emoji) { img.remove(); return; }
     const span = document.createElement("span");
-    span.className = img.classList.contains("art-photo") || img.classList.contains("art-icon") ? "emoji" : "";
+    span.className = img.classList.contains("folder-art") ? "folder-art emoji"
+      : img.classList.contains("art-photo") || img.classList.contains("art-icon") ? "emoji" : "";
     span.textContent = emoji;
     span.setAttribute("aria-hidden", "true");
     img.replaceWith(span);
@@ -70,5 +76,5 @@ window.KC = (() => {
     if (e.target instanceof HTMLImageElement && e.target.dataset.emoji !== undefined) artFallback(e.target);
   }, true);
 
-  return { decks, byId, register, store, validState, progress, imgSrc, colorOf, esc };
+  return { decks, byId, register, store, validState, progress, imgSrc, folderArt, colorOf, esc };
 })();

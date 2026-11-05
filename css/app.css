@@ -178,7 +178,7 @@ button { font-family: inherit; letter-spacing: inherit; }
 }
 .pill .ko { font-weight: 700; font-size: .9rem; color: var(--ink); }
 .pill .en { font-size: .68rem; font-weight: 700; }
-.pill:focus-visible, .nav-back:focus-visible, .deck-tile:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+.pill:focus-visible, .nav-back:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
 
 .nav-back {
   width: 40px; height: 40px; flex-shrink: 0;
@@ -240,37 +240,66 @@ button { font-family: inherit; letter-spacing: inherit; }
 .foot-legal { margin: 0; font-size: .74rem; }
 .foot-copy { margin: 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: .74rem; font-weight: 700; }
 
-.home { height: auto; gap: 18px; padding-top: 20px; }
+.home { height: auto; gap: var(--space-7); padding-top: var(--space-7); }
 .home-hero { padding: 4px 2px 0; }
 .home-hero h1 { font-weight: 800; letter-spacing: -0.03em; font-size: 1.55rem; margin: 0; line-height: 1.25; }
 .home-hero p { margin: 4px 0 0; color: var(--muted); font-weight: 700; font-size: .92rem; }
 
-.deck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.deck-tile {
-  display: flex; flex-direction: column;
-  background: var(--surface); color: var(--ink); text-decoration: none;
-  border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-card);
+/* ---------- 덱 더미 ----------
+   덱 하나가 카드 한 장. 음수 마진으로 겹쳐 쌓는다.
+   overflow: hidden 이 이 컴포넌트의 핵심 — 겉면 그림이 이 모서리에 잘린다. */
+.folder {
+  position: relative; display: block; overflow: hidden;
+  color: var(--ink); text-decoration: none;
+  background: var(--g-bg); border: 1px solid var(--line);
+  border-radius: var(--radius-xl); box-shadow: var(--shadow-folder);
+  padding: var(--space-7); padding-right: 40%;
+  min-height: 132px;
   transition: transform .12s ease;
 }
-.deck-tile:active { transform: scale(.98); }
-.deck-cover {
-  aspect-ratio: 4 / 3; background: var(--g-bg);
-  display: grid; place-items: center; overflow: hidden;
-}
-.deck-cover img.photo { width: 100%; height: 100%; object-fit: cover; }
-.deck-cover img.icon { width: 58%; height: auto; }
-.deck-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-.deck-name { font-weight: 700; font-size: 1.12rem; line-height: 1.15; }
-.deck-name small { display: block; font-weight: 700; font-size: .72rem; color: var(--muted); }
-.deck-meta { margin-top: auto; display: flex; align-items: center; gap: 8px; font-size: .74rem; font-weight: 800; color: var(--muted); }
-.deck-meta .bar { height: 5px; }
+.folder + .folder { margin-top: calc(var(--folder-overlap) * -1); }
+/* z-index 를 같이 올리지 않으면 아래 카드에 가려 안 올라온 것처럼 보인다 */
+.folder:active, .folder:focus-visible { z-index: 2; }
+.folder:active { transform: translateY(-4px); }
+.folder:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
 
-.soon {
-  border: 2px dashed var(--line); border-radius: 22px; color: var(--muted);
-  display: grid; place-items: center; text-align: center; padding: 18px 10px;
-  font-weight: 700; font-size: .8rem; line-height: 1.4;
+/* 제목은 알약 — 서류철에 붙이는 이름표다. 카드가 -bg 이므로 알약은 -ink 로
+   채우고 글자를 -bg 로 뺀다. 흰 알약은 파스텔 위에서 1.3:1 이라 안 보인다.
+   위아래 padding 이 다른 건 Jua 의 글자가 기준선보다 위에 쏠려 있어서다. */
+.folder-label {
+  display: inline-block; background: var(--g-ink); color: var(--g-bg);
+  font-family: var(--font-display); font-size: 1.2rem; line-height: 1;
+  padding: 11px 16px 9px; border-radius: var(--radius-full);
 }
-.soon b { display: block; font-weight: 700; font-size: 1rem; color: var(--ink); }
+.folder-desc { margin: var(--space-5) 0 0; font-size: .85rem; font-weight: 700; line-height: 1.45; }
+/* 폴더 위에서는 muted 를 쓰지 않는다 — 파스텔 8색 중 넷이 4.5:1 에 못 미친다.
+   영문도 ink 로 두고 크기와 굵기로만 눌러 준다. */
+.folder-gloss { margin: var(--space-2) 0 0; font-size: .72rem; font-weight: 600; }
+
+.folder-bar {
+  margin-top: var(--space-5); width: 56%; height: 6px; border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--g-ink) 22%, transparent);
+}
+.folder-bar > i { display: block; height: 100%; border-radius: inherit; background: var(--g-ink); }
+
+/* 겉면 그림 — 바탕 타일 없이 투명 PNG 를 그대로. 일부러 밖으로 밀어 내
+   카드 모서리가 잘라 주게 둔다. 잘리는 자리가 그림마다 달라서
+   같은 틀인데도 덱마다 다르게 보인다. */
+.folder-art {
+  position: absolute; right: -16px; bottom: -22px;
+  width: 37%; max-width: 150px; height: auto;
+  pointer-events: none; -webkit-user-drag: none;
+}
+/* 이미지를 못 불러왔을 때의 대체 (core.js artFallback) */
+span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 14vw, 4.6rem); line-height: 1; }
+
+/* 바탕을 비우면 겹친 자리로 위 카드의 밑동이 비친다 — bg 로 덮는다 */
+.soon {
+  background: var(--bg); border: 2px dashed var(--line); box-shadow: none;
+  min-height: 104px; padding-right: var(--space-7);
+}
+.soon .folder-label { background: var(--gray-bg); color: var(--gray-ink); }
+.soon .folder-gloss { color: var(--muted); }
 
 
 /* ============================================================
@@ -423,12 +452,11 @@ button { font-family: inherit; letter-spacing: inherit; }
   .home, .credits { max-width: 640px; }
   .site-footer .site-inner { display: grid; grid-template-columns: 1fr auto; align-items: start; }
   .foot-legal, .foot-copy { grid-column: 1 / -1; }
-  .deck-grid { grid-template-columns: repeat(3, 1fr); }
   .title { font-size: 1.35rem; }
   .card { max-height: 520px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .inner, .card, .bar > i, .deck-tile { transition: none !important; }
+  .inner, .card, .bar > i, .folder { transition: none !important; }
   .pop { animation: none; }
 }
