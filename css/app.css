@@ -253,7 +253,10 @@ button { font-family: inherit; letter-spacing: inherit; }
   color: var(--ink); text-decoration: none;
   background: var(--g-bg); border: 1px solid var(--line);
   border-radius: var(--radius-xl); box-shadow: var(--shadow-folder);
-  padding: var(--space-7); padding-right: 40%;
+  padding: var(--space-7);
+  /* 오른쪽은 겉면 그림 자리. 그림 폭(아래 .folder-art)과 같이 움직여야
+     좁은 화면에서 글자가 그림에 닿지 않는다. */
+  padding-right: clamp(136px, 42%, 168px);
   min-height: 132px;
   transition: transform .12s ease;
 }
@@ -271,13 +274,16 @@ button { font-family: inherit; letter-spacing: inherit; }
   font-family: var(--font-display); font-size: 1.2rem; line-height: 1;
   padding: 11px 16px 9px; border-radius: var(--radius-full);
 }
-.folder-desc { margin: var(--space-5) 0 0; font-size: .85rem; font-weight: 700; line-height: 1.45; }
+/* 한글은 --font-app 의 두 번째 글꼴인 Jua 로 떨어진다. 둥근 서체라
+   .85rem 에서는 뭉쳐서, 본문보다 한 단계만 작게 둔다. */
+.folder-desc { margin: var(--space-5) 0 0; font-size: .92rem; font-weight: 700; line-height: 1.45; }
 /* 폴더 위에서는 muted 를 쓰지 않는다 — 파스텔 8색 중 넷이 4.5:1 에 못 미친다.
    영문도 ink 로 두고 크기와 굵기로만 눌러 준다. */
-.folder-gloss { margin: var(--space-2) 0 0; font-size: .72rem; font-weight: 600; }
+.folder-gloss { margin: var(--space-2) 0 0; font-size: .76rem; font-weight: 600; }
 
 .folder-bar {
   margin-top: var(--space-5); width: 56%; height: 6px; border-radius: var(--radius-full);
+  background: var(--g-bg);
   background: color-mix(in srgb, var(--g-ink) 22%, transparent);
 }
 .folder-bar > i { display: block; height: 100%; border-radius: inherit; background: var(--g-ink); }
@@ -287,7 +293,7 @@ button { font-family: inherit; letter-spacing: inherit; }
    같은 틀인데도 덱마다 다르게 보인다. */
 .folder-art {
   position: absolute; right: -16px; bottom: -22px;
-  width: 37%; max-width: 150px; height: auto;
+  width: clamp(112px, 37%, 150px); height: auto;
   pointer-events: none; -webkit-user-drag: none;
 }
 /* 이미지를 못 불러왔을 때의 대체 (core.js artFallback) */
