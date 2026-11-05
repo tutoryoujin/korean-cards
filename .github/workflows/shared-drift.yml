@@ -1,0 +1,17 @@
+# shared/ 가 tokens.json 과 맞는지, 그리고 이 저장소의 복사본이
+# shared/ 와 맞는지 확인한다. 달력 쪽 복사본은 그 저장소의
+# 같은 이름 워크플로가 본다.
+name: shared drift
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/sync_shared.py --check
