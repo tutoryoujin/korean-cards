@@ -1,58 +1,131 @@
 /* ============================================================
-   Tokens — 공용 팔레트 8색. 덱의 groups[].color 가 이 이름을 씀.
+   Tokens — "한국어 with Youjin" 디자인 시스템 v2 에서 복사.
+   https://claude.ai/artifact/C1LfGgisHTtDbmy7NyoUtF
+
+   여기서 고치지 말 것. 디자인 시스템에서 고친 뒤 다시 복사한다.
+   달력 앱(calendar-practice)도 같은 값을 쓴다 — 한쪽만 바꾸면 갈라진다.
    ============================================================ */
 :root {
-  --bg: #EEF1F8;
-  --ink: #26304A;
-  --muted: #6B7590;
-  --surface: #FFFFFF;
-  --line: #D8DEEB;
-  --primary: #3550C8;
-  --primary-ink: #FFFFFF;
-  --shadow: 0 14px 30px -12px rgba(38, 48, 74, .28);
+  /* 바탕과 글자 */
+  --bg: #f5f8ff;
+  --surface: #ffffff;
+  --ink: #1e2742;
+  --muted: #56618a;
+  --line: #c9d5f2;
+  --primary: #4356cf;
+  --primary-ink: #ffffff;
+  --sky: #d2e0fb;
+  --sky-ink: #23356f;
 
-  --yellow-bg: #FFE9A8;   --yellow-ink: #6A4A00;
-  --pink-bg: #FFD3E2;     --pink-ink: #8A1F4C;
-  --mint-bg: #CDEFE2;     --mint-ink: #1F5E48;
-  --blue-bg: #CFE0FA;     --blue-ink: #1F4A86;
-  --coral-bg: #FFD2C4;    --coral-ink: #8A2E14;
-  --lavender-bg: #E2DAFA; --lavender-ink: #4B3A8C;
-  --orange-bg: #FFDDB8;   --orange-ink: #7A3F00;
-  --gray-bg: #E1E5EE;     --gray-ink: #3A4560;
+  /* 악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다 */
+  --blue-bg: #9cb2eb;     --blue-ink: #17265e;
+  --pink-bg: #ffd0d2;     --pink-ink: #8a2535;
+  --yellow-bg: #f4e271;   --yellow-ink: #5f5300;
+  --mint-bg: #bdeace;     --mint-ink: #14543a;
+  --lavender-bg: #ddd4fb; --lavender-ink: #412b8c;
+  --coral-bg: #ffd0b8;    --coral-ink: #8a3714;
+  --orange-bg: #ffe2ad;   --orange-ink: #6f4206;
+  --gray-bg: #dde4f3;     --gray-ink: #333d5c;
+
+  /* 마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다 */
+  --ieung-body: #9cb2eb;
+  --ieung-limb: #7f97dd;
+  --ieung-face: #1e2742;
+  --ieung-blush: #ffd0d2;
+
+  /* 뜻 이름은 별칭이다. 여기에 hex 를 다시 적지 말 것 */
+  --ok-bg: var(--mint-bg);     --ok-ink: var(--mint-ink);
+  --bad-bg: var(--coral-bg);   --bad-ink: var(--coral-ink);
+
+  /* 글꼴 — Nunito 가 영문·숫자, Jua 가 한글을 맡는다 (한 스택에서 글자별로 분기) */
+  --font-app: "Nunito", "Jua", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-display: "Jua", "Nunito", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-reading: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+
+  /* 간격 */
+  --space-1: 4px;  --space-2: 6px;  --space-3: 8px;  --space-4: 10px; --space-5: 12px;
+  --space-6: 16px; --space-7: 20px; --space-8: 28px; --space-9: 36px;
+
+  /* 모서리 */
+  --radius-sm: 12px; --radius-md: 14px; --radius-lg: 22px; --radius-xl: 28px; --radius-full: 999px;
+
+  /* 그림자 — folder 는 위쪽으로 드리운다. 아래에서 끼워 넣은 인상을 만드는 건 이 방향이다 */
+  --shadow-card: 0 14px 30px -12px rgba(30, 39, 66, .22);
+  --shadow-folder: 0 -6px 16px -8px rgba(30, 39, 66, .28);
+  --folder-overlap: 16px;
 
   color-scheme: light;
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+
+/* 다크는 세 상태를 전부 정의한다. @media 안에만 있는 색이 하나라도 있으면
+   사용자가 테마를 직접 고른 순간 그 색만 빠진다. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #161A24; --ink: #E8ECF5; --muted: #9AA3BA; --surface: #222838; --line: #343B4E;
-    --primary: #7C93FF; --primary-ink: #10142A;
-    --shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
-    --yellow-bg: #4A3B12;   --yellow-ink: #FFDF8A;
-    --pink-bg: #4E2234;     --pink-ink: #FFB8D0;
-    --mint-bg: #173F33;     --mint-ink: #A6EBD2;
-    --blue-bg: #1D3150;     --blue-ink: #B4D0FF;
-    --coral-bg: #4D2418;    --coral-ink: #FFB9A3;
-    --lavender-bg: #2F2752; --lavender-ink: #D3C8FF;
-    --orange-bg: #4A2E12;   --orange-ink: #FFC88A;
-    --gray-bg: #2C3344;     --gray-ink: #C9D0E0;
+    /* 바탕과 글자 */
+    --bg: #131a2c;
+    --surface: #1d2740;
+    --ink: #e7ecfb;
+    --muted: #97a3c6;
+    --line: #36426a;
+    --primary: #95a8ff;
+    --primary-ink: #0d1428;
+    --sky: #27365e;
+    --sky-ink: #c3d4fb;
+
+    /* 악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다 */
+    --blue-bg: #24335f;     --blue-ink: #b6c7ff;
+    --pink-bg: #4b2630;     --pink-ink: #ffbcc1;
+    --yellow-bg: #443c14;   --yellow-ink: #f2e48d;
+    --mint-bg: #17432f;     --mint-ink: #a3ebc6;
+    --lavender-bg: #2d2659; --lavender-ink: #cfc3ff;
+    --coral-bg: #4b2718;    --coral-ink: #ffbda2;
+    --orange-bg: #453112;   --orange-ink: #ffcf96;
+    --gray-bg: #2a3450;     --gray-ink: #c6cfe6;
+
+    /* 마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다 */
+    --ieung-body: #8095d4;
+    --ieung-limb: #6478b8;
+    --ieung-face: #141c33;
+    --ieung-blush: #e8a8ad;
+
+    --shadow-card: 0 14px 30px -12px rgba(0, 0, 0, .6);
+    --shadow-folder: 0 -6px 16px -8px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #161A24; --ink: #E8ECF5; --muted: #9AA3BA; --surface: #222838; --line: #343B4E;
-  --primary: #7C93FF; --primary-ink: #10142A;
-  --shadow: 0 14px 30px -12px rgba(0, 0, 0, .6);
-  --yellow-bg: #4A3B12;   --yellow-ink: #FFDF8A;
-  --pink-bg: #4E2234;     --pink-ink: #FFB8D0;
-  --mint-bg: #173F33;     --mint-ink: #A6EBD2;
-  --blue-bg: #1D3150;     --blue-ink: #B4D0FF;
-  --coral-bg: #4D2418;    --coral-ink: #FFB9A3;
-  --lavender-bg: #2F2752; --lavender-ink: #D3C8FF;
-  --orange-bg: #4A2E12;   --orange-ink: #FFC88A;
-  --gray-bg: #2C3344;     --gray-ink: #C9D0E0;
+  /* 바탕과 글자 */
+  --bg: #131a2c;
+  --surface: #1d2740;
+  --ink: #e7ecfb;
+  --muted: #97a3c6;
+  --line: #36426a;
+  --primary: #95a8ff;
+  --primary-ink: #0d1428;
+  --sky: #27365e;
+  --sky-ink: #c3d4fb;
+
+  /* 악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다 */
+  --blue-bg: #24335f;     --blue-ink: #b6c7ff;
+  --pink-bg: #4b2630;     --pink-ink: #ffbcc1;
+  --yellow-bg: #443c14;   --yellow-ink: #f2e48d;
+  --mint-bg: #17432f;     --mint-ink: #a3ebc6;
+  --lavender-bg: #2d2659; --lavender-ink: #cfc3ff;
+  --coral-bg: #4b2718;    --coral-ink: #ffbda2;
+  --orange-bg: #453112;   --orange-ink: #ffcf96;
+  --gray-bg: #2a3450;     --gray-ink: #c6cfe6;
+
+  /* 마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다 */
+  --ieung-body: #8095d4;
+  --ieung-limb: #6478b8;
+  --ieung-face: #141c33;
+  --ieung-blush: #e8a8ad;
+
+  --shadow-card: 0 14px 30px -12px rgba(0, 0, 0, .6);
+  --shadow-folder: 0 -6px 16px -8px rgba(0, 0, 0, .7);
   color-scheme: dark;
 }
 
@@ -176,7 +249,7 @@ button { font-family: inherit; letter-spacing: inherit; }
 .deck-tile {
   display: flex; flex-direction: column;
   background: var(--surface); color: var(--ink); text-decoration: none;
-  border-radius: 22px; overflow: hidden; box-shadow: var(--shadow);
+  border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-card);
   transition: transform .12s ease;
 }
 .deck-tile:active { transform: scale(.98); }
@@ -229,7 +302,7 @@ button { font-family: inherit; letter-spacing: inherit; }
   position: absolute; inset: 0;
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
   border-radius: 28px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-card);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 24px 20px 56px; text-align: center;
   overflow: hidden;
@@ -277,7 +350,7 @@ button { font-family: inherit; letter-spacing: inherit; }
 .swipe-tag small { display: block; font-weight: 800; font-size: .65rem; }
 /* 라벨은 미는 방향의 반대편에 붙인다 — 카드가 빠져나가는 쪽에 두면
    엄지에 가리고 화면 밖으로 밀려나서 안 보인다. */
-.swipe-tag.miss { right: 16px; color: var(--coral-ink); transform: rotate(8deg); }
+.swipe-tag.miss { right: 16px; color: var(--bad-ink); transform: rotate(8deg); }
 .swipe-tag.know { left: 16px; color: var(--primary); transform: rotate(-8deg); }
 
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -296,7 +369,7 @@ button { font-family: inherit; letter-spacing: inherit; }
 .btn[disabled] { opacity: .4; cursor: default; }
 
 .panel {
-  width: 100%; background: var(--surface); border-radius: 28px; box-shadow: var(--shadow);
+  width: 100%; background: var(--surface); border-radius: 28px; box-shadow: var(--shadow-card);
   padding: 32px 20px; text-align: center;
 }
 .panel .emoji { margin-bottom: 12px; }
@@ -322,15 +395,9 @@ button { font-family: inherit; letter-spacing: inherit; }
 }
 
 /* ============================================================
-   Typography — 앱 전체는 귀여운 폰트, 카드는 Pretendard
-   --font-app : 영문 Nunito + 한글 Jua (한 스택에서 글자별로 자동 분기)
-   --font-card: Pretendard (카드 앞/뒷면)
+   Typography — 글꼴 토큰은 맨 위 :root 에 있다
    ============================================================ */
-:root {
-  --font-app: "Nunito", "Jua", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --font-card: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-}
-.card { font-family: var(--font-card); letter-spacing: -0.01em; font-synthesis: weight; }
+.card { font-family: var(--font-reading); letter-spacing: -0.01em; font-synthesis: weight; }
 .home-hero h1 { letter-spacing: 0; }
 .brand-text em, .foot-brand em { font-style: normal; font-size: .78em; color: var(--primary); }
 
