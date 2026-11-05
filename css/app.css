@@ -335,7 +335,28 @@ span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 
 /* 바탕을 비우면 겹친 자리로 위 카드의 밑동이 비친다 — bg 로 덮는다 */
 .soon { background: var(--bg); border: 2px dashed var(--line); box-shadow: none; }
 /* 빈 자리에서는 이응이 겉면 그림 자리를 대신한다 */
-.soon-art { position: absolute; right: 12px; bottom: -14px; width: 84px; height: 89px; pointer-events: none; }
+/* #ieung-wave 는 200x204 — 전신 심볼(192x204)보다 오른쪽이 넓다 */
+.soon-art { position: absolute; right: 10px; bottom: -14px; width: 86px; height: 88px; pointer-events: none; }
+
+/* 이응의 오른팔 — 어깨를 축으로 돌려서 손을 흔든다.
+   animation 이 없어도 이 rotate 만 남아 원래 자세 그대로다. */
+.ieung-wave {
+  transform-box: fill-box; transform-origin: 0% 50%;
+  transform: rotate(-38deg);
+  animation: ieung-wave 3s ease-in-out infinite;
+}
+/* 쉬는 자세(-38) 를 중심으로 좌우로 흔든다. 팔을 수직에 가깝게 들면
+   몸통에 가려 끝만 삐죽 나와서 인사로 안 읽힌다 — 보이는 팔 길이가
+   44 중 18 까지 줄어든다. -30~-62 사이면 23~28 이 남는다. */
+@keyframes ieung-wave {
+  0%, 36%, 100% { transform: rotate(-38deg); }
+  45% { transform: rotate(-62deg); }
+  54% { transform: rotate(-30deg); }
+  63% { transform: rotate(-62deg); }
+  72% { transform: rotate(-30deg); }
+  81% { transform: rotate(-58deg); }
+  92% { transform: rotate(-40deg); }
+}
 .soon .folder-label { background: var(--gray-bg); color: var(--gray-ink); }
 .soon .folder-gloss { color: var(--muted); }
 
@@ -507,4 +528,5 @@ span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 
   .inner, .card, .bar > i, .folder { transition: none !important; }
   .folder:hover, .folder:focus-visible, .folder:active { transform: none; }
   .pop { animation: none; }
+  .ieung-wave { animation: none; }
 }

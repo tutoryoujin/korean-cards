@@ -43,6 +43,17 @@
       <rect fill="var(--ieung-limb)" x="22" y="126" width="42" height="15" rx="7.5" transform="rotate(-14 43 133)"/>
       <rect fill="var(--ieung-limb)" x="152" y="100" width="44" height="15" rx="7.5" transform="rotate(-38 174 107)"/>
     </g>
+    <!-- 같은 팔·발인데 오른팔만 애니메이션용. use 가 만든 섀도 트리는 바깥
+         선택자가 닿지 않아서, 한 인스턴스만 움직이게 하려면 원본을 따로 둬야 한다.
+         오른팔의 x/y 가 다른 건 회전 기준점이 달라서다 — 위는 rect 가운데를
+         기준으로 돌리고, 아래는 CSS 가 fill-box 왼쪽 끝(어깨)을 기준으로 돌린다.
+         두 자세는 같은 자리에 떨어진다. -->
+    <g id="ieung-limbs-wave">
+      <ellipse fill="var(--ieung-limb)" cx="84" cy="196" rx="20" ry="13"/>
+      <ellipse fill="var(--ieung-limb)" cx="136" cy="196" rx="20" ry="13"/>
+      <rect fill="var(--ieung-limb)" x="22" y="126" width="42" height="15" rx="7.5" transform="rotate(-14 43 133)"/>
+      <rect class="ieung-wave" fill="var(--ieung-limb)" x="157" y="113.5" width="44" height="15" rx="7.5"/>
+    </g>
     <g id="ieung-head">
       <rect fill="var(--primary)" x="103" y="24" width="14" height="50" rx="7"/>
       <rect fill="var(--primary)" x="76" y="24" width="68" height="14" rx="7"/>
@@ -57,6 +68,8 @@
   </defs>
   <!-- 전신. 가로세로 192:204 -->
   <symbol id="ieung" viewBox="8 12 192 204"><use href="#ieung-limbs"/><use href="#ieung-head"/></symbol>
+  <!-- 손 흔드는 변형. 팔이 바깥으로 더 나가므로 오른쪽을 8 넓혔다 (200x204) -->
+  <symbol id="ieung-wave" viewBox="8 12 200 204"><use href="#ieung-limbs-wave"/><use href="#ieung-head"/></symbol>
   <!-- 브랜드 마크 — 팔을 빼고 얼굴만. 정사각이라 정사각 칸에 꼭 맞는다 -->
   <symbol id="ieung-mark" viewBox="21.5 16 177 177"><use href="#ieung-head"/></symbol>
 </svg>
