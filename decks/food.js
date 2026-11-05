@@ -1,4 +1,3 @@
-/* 초안 — 단어·설명·예문 검수 필요 */
 KC.register({
   id: "food",
   title: { ko: "음식 카드", en: "Korean Food" },

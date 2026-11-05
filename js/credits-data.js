@@ -319,5 +319,165 @@ window.IMAGE_CREDITS = [
   "license": "MIT",
   "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
   "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Flushed%20face"
+ },
+ {
+  "key": "family/gajok",
+  "title": "People hugging",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/People%20hugging"
+ },
+ {
+  "key": "family/bumonim",
+  "title": "Busts in silhouette",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Busts%20in%20silhouette"
+ },
+ {
+  "key": "family/eomma",
+  "title": "Woman",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman"
+ },
+ {
+  "key": "family/appa",
+  "title": "Man",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man"
+ },
+ {
+  "key": "family/halmeoni",
+  "title": "Old woman",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Old%20woman"
+ },
+ {
+  "key": "family/harabeoji",
+  "title": "Old man",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Old%20man"
+ },
+ {
+  "key": "family/hyeong",
+  "title": "Man gesturing ok",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20gesturing%20ok"
+ },
+ {
+  "key": "family/oppa",
+  "title": "Man raising hand",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20raising%20hand"
+ },
+ {
+  "key": "family/nuna",
+  "title": "Woman raising hand",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20raising%20hand"
+ },
+ {
+  "key": "family/eonni",
+  "title": "Woman gesturing ok",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20gesturing%20ok"
+ },
+ {
+  "key": "family/dongsaeng",
+  "title": "Child",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Child"
+ },
+ {
+  "key": "family/namdongsaeng",
+  "title": "Boy",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Boy"
+ },
+ {
+  "key": "family/yeodongsaeng",
+  "title": "Girl",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Girl"
+ },
+ {
+  "key": "family/samchon",
+  "title": "Man beard",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20beard"
+ },
+ {
+  "key": "family/imo",
+  "title": "Woman red hair",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20red%20hair"
+ },
+ {
+  "key": "family/gomo",
+  "title": "Woman tipping hand",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20tipping%20hand"
+ },
+ {
+  "key": "family/sachon",
+  "title": "Person blonde hair",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Person%20blonde%20hair"
+ },
+ {
+  "key": "family/adeul",
+  "title": "Man curly hair",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20curly%20hair"
+ },
+ {
+  "key": "family/ttal",
+  "title": "Woman curly hair",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20curly%20hair"
+ },
+ {
+  "key": "family/joka",
+  "title": "Baby",
+  "author": "Microsoft Fluent Emoji",
+  "license": "MIT",
+  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Baby"
  }
 ];

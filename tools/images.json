@@ -358,5 +358,185 @@
     "license": "MIT",
     "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
     "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Flushed%20face"
+  },
+  "family/gajok": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/People%20hugging/3D/people_hugging_3d.png",
+    "title": "People hugging",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/People%20hugging"
+  },
+  "family/bumonim": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Busts%20in%20silhouette/3D/busts_in_silhouette_3d.png",
+    "title": "Busts in silhouette",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Busts%20in%20silhouette"
+  },
+  "family/eomma": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman/Default/3D/woman_3d_default.png",
+    "title": "Woman",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman"
+  },
+  "family/appa": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man/Default/3D/man_3d_default.png",
+    "title": "Man",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man"
+  },
+  "family/halmeoni": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Old%20woman/Default/3D/old_woman_3d_default.png",
+    "title": "Old woman",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Old%20woman"
+  },
+  "family/harabeoji": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Old%20man/Default/3D/old_man_3d_default.png",
+    "title": "Old man",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Old%20man"
+  },
+  "family/hyeong": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man%20gesturing%20ok/Default/3D/man_gesturing_ok_3d_default.png",
+    "title": "Man gesturing ok",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20gesturing%20ok"
+  },
+  "family/oppa": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man%20raising%20hand/Default/3D/man_raising_hand_3d_default.png",
+    "title": "Man raising hand",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20raising%20hand"
+  },
+  "family/nuna": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman%20raising%20hand/Default/3D/woman_raising_hand_3d_default.png",
+    "title": "Woman raising hand",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20raising%20hand"
+  },
+  "family/eonni": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman%20gesturing%20ok/Default/3D/woman_gesturing_ok_3d_default.png",
+    "title": "Woman gesturing ok",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20gesturing%20ok"
+  },
+  "family/dongsaeng": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Child/Default/3D/child_3d_default.png",
+    "title": "Child",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Child"
+  },
+  "family/namdongsaeng": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Boy/Default/3D/boy_3d_default.png",
+    "title": "Boy",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Boy"
+  },
+  "family/yeodongsaeng": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Girl/Default/3D/girl_3d_default.png",
+    "title": "Girl",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Girl"
+  },
+  "family/samchon": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man%20beard/Default/3D/man_beard_3d_default.png",
+    "title": "Man beard",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20beard"
+  },
+  "family/imo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman%20red%20hair/Default/3D/woman_red_hair_3d_default.png",
+    "title": "Woman red hair",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20red%20hair"
+  },
+  "family/gomo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman%20tipping%20hand/Default/3D/woman_tipping_hand_3d_default.png",
+    "title": "Woman tipping hand",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20tipping%20hand"
+  },
+  "family/sachon": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Person%20blonde%20hair/Default/3D/person_blonde_hair_3d_default.png",
+    "title": "Person blonde hair",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Person%20blonde%20hair"
+  },
+  "family/adeul": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Man%20curly%20hair/Default/3D/man_curly_hair_3d_default.png",
+    "title": "Man curly hair",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Man%20curly%20hair"
+  },
+  "family/ttal": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Woman%20curly%20hair/Default/3D/woman_curly_hair_3d_default.png",
+    "title": "Woman curly hair",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Woman%20curly%20hair"
+  },
+  "family/joka": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Baby/Default/3D/baby_3d_default.png",
+    "title": "Baby",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Baby"
   }
 }
