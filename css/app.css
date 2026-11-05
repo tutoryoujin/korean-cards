@@ -275,8 +275,10 @@ button { font-family: inherit; letter-spacing: inherit; }
   background: var(--surface); opacity: 0; text-align: center;
 }
 .swipe-tag small { display: block; font-weight: 800; font-size: .65rem; }
-.swipe-tag.miss { left: 16px; color: var(--coral-ink); transform: rotate(-8deg); }
-.swipe-tag.know { right: 16px; color: var(--primary); transform: rotate(8deg); }
+/* 라벨은 미는 방향의 반대편에 붙인다 — 카드가 빠져나가는 쪽에 두면
+   엄지에 가리고 화면 밖으로 밀려나서 안 보인다. */
+.swipe-tag.miss { right: 16px; color: var(--coral-ink); transform: rotate(8deg); }
+.swipe-tag.know { left: 16px; color: var(--primary); transform: rotate(-8deg); }
 
 .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .btn {
