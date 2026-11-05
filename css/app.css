@@ -203,14 +203,14 @@ button { font-family: inherit; letter-spacing: inherit; }
 }
 .site-header .site-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; min-width: 0; }
+/* 정사각 칸 + 정사각 symbol viewBox → preserveAspectRatio 가 손댈 일이 없다.
+   margin 으로 위치를 밀지 않는다 — 칸 크기가 바뀌는 순간 틀어진다. */
 .brand-mark {
-  width: 36px; height: 36px; flex-shrink: 0; border-radius: 11px;
-  display: grid; place-items: center;
-  background: var(--primary); color: var(--primary-ink);
-  font-weight: 800; font-size: 1.1rem; letter-spacing: 0;
-  box-shadow: 0 6px 14px -6px var(--primary);
+  display: block; width: 36px; height: 36px; flex-shrink: 0;
+  border-radius: var(--radius-full); background: var(--sky); overflow: hidden;
 }
-.brand-mark.sm { width: 32px; height: 32px; border-radius: 10px; font-size: 1rem; box-shadow: none; }
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+.brand-mark.sm { width: 32px; height: 32px; }
 .brand-text { font-weight: 800; font-size: 1.05rem; line-height: 1.1; white-space: nowrap; }
 .brand-text small { display: block; font-weight: 600; font-size: .7rem; color: var(--muted); letter-spacing: 0; }
 .site-nav { display: flex; gap: 4px; }

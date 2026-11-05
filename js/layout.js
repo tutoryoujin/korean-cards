@@ -9,7 +9,7 @@ KC.siteHeader = function siteHeader(active) {
     <header class="site-header">
       <div class="site-inner">
         <a class="brand" href="#/" aria-label="한국어 카드 with Youjin 홈 / Home">
-          <span class="brand-mark" aria-hidden="true">한</span>
+          <span class="brand-mark" aria-hidden="true"><svg><use href="#ieung-mark"/></svg></span>
           <span class="brand-text">한국어 카드 <em>with Youjin</em><small>Korean Word Cards</small></span>
         </a>
         <nav class="site-nav" aria-label="메뉴 / Menu">
@@ -25,7 +25,7 @@ KC.siteFooter = function siteFooter() {
     <footer class="site-footer">
       <div class="site-inner">
         <div class="foot-brand">
-          <span class="brand-mark sm" aria-hidden="true">한</span>
+          <span class="brand-mark sm" aria-hidden="true"><svg><use href="#ieung-mark"/></svg></span>
           <div>
             <b>한국어 카드 <em>with Youjin</em></b>
             <span>한 장씩, 매일 조금씩.<br>Learn Korean, one card at a time.</span>
