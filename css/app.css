@@ -136,29 +136,15 @@ span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 
 
 /* 바탕을 비우면 겹친 자리로 위 카드의 밑동이 비친다 — bg 로 덮는다 */
 .soon { background: var(--bg); border: 2px dashed var(--line); box-shadow: none; }
-/* 빈 자리에서는 이응이 겉면 그림 자리를 대신한다 */
-/* #ieung-wave 는 200x204 — 전신 심볼(192x204)보다 오른쪽이 넓다 */
-.soon-art { position: absolute; right: 10px; bottom: -14px; width: 86px; height: 88px; pointer-events: none; }
-
-/* 이응의 오른팔 — 어깨를 축으로 돌려서 손을 흔든다.
-   animation 이 없어도 이 rotate 만 남아 원래 자세 그대로다. */
-.ieung-wave {
-  transform-box: fill-box; transform-origin: 0% 50%;
-  transform: rotate(-38deg);
-  animation: ieung-wave 3s ease-in-out infinite;
+/* 빈 자리에서는 이응이 겉면 그림 자리를 대신한다. 입체 이응은 240x250.
+   눌러 볼 수 있는 숨은 재미라 버튼이지만 버튼처럼 보이지 않게 둔다. */
+.soon-art {
+  position: absolute; right: 12px; bottom: 8px; width: 88px; height: 92px;
+  padding: 0; border: 0; background: none; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-/* 쉬는 자세(-38) 를 중심으로 좌우로 흔든다. 팔을 수직에 가깝게 들면
-   몸통에 가려 끝만 삐죽 나와서 인사로 안 읽힌다 — 보이는 팔 길이가
-   44 중 18 까지 줄어든다. -30~-62 사이면 23~28 이 남는다. */
-@keyframes ieung-wave {
-  0%, 36%, 100% { transform: rotate(-38deg); }
-  45% { transform: rotate(-62deg); }
-  54% { transform: rotate(-30deg); }
-  63% { transform: rotate(-62deg); }
-  72% { transform: rotate(-30deg); }
-  81% { transform: rotate(-58deg); }
-  92% { transform: rotate(-40deg); }
-}
+.soon-art svg { width: 100%; height: 100%; }
+.soon-art:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: var(--radius-sm); }
 .soon .folder-label { background: var(--gray-bg); color: var(--gray-ink); }
 .soon .folder-gloss { color: var(--muted); }
 
@@ -243,7 +229,20 @@ span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 
 .swipe-tag.miss { right: 16px; color: var(--bad-ink); transform: rotate(8deg); }
 .swipe-tag.know { left: 16px; color: var(--primary); transform: rotate(-8deg); }
 
-.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; z-index: 2; }
+
+/* 정답·오답 반응 — 누른 버튼 바로 위로 잠깐 올라온다. 누를 수 없다.
+   가운데에 두면 카드 앞면의 안내 문구를 가린다. 모서리는 비어 있다. */
+.react {
+  position: absolute; bottom: calc(100% + 4px); right: 14px;
+  width: 80px; height: 84px;
+  transform: translateY(24px) scale(.6); opacity: 0;
+  transition: transform .22s cubic-bezier(.2, 1.4, .4, 1), opacity .18s ease;
+  pointer-events: none;
+}
+.react.miss { right: auto; left: 14px; }
+.react.show { transform: none; opacity: 1; }
+.react svg { width: 100%; height: 100%; }
 .btn {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
   min-height: 68px; padding: 10px 8px;
@@ -270,7 +269,7 @@ span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 
   display: grid; place-items: end center;
 }
 .panel-mascot .pop { display: block; cursor: pointer; }
-.panel-mascot svg { display: block; width: 104px; height: 111px; }
+.panel-mascot svg { display: block; width: 100px; height: 104px; margin-bottom: -6px; }
 .panel-mascot .pop:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; border-radius: var(--radius-sm); }
 .panel h2 { font-weight: 700; font-size: 1.8rem; margin: 0 0 4px; }
 .panel .sub-en { font-weight: 700; color: var(--muted); font-size: .9rem; margin: 0 0 14px; }
@@ -327,5 +326,5 @@ span.folder-art { right: 4px; bottom: -6px; width: auto; font-size: clamp(3rem, 
   .inner, .card, .bar > i, .folder { transition: none !important; }
   .folder:hover, .folder:focus-visible, .folder:active { transform: none; }
   .pop { animation: none; }
-  .ieung-wave { animation: none; }
+  .react, .react.show { transform: none; transition: opacity .18s ease; }
 }

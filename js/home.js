@@ -25,6 +25,11 @@ KC.mountHome = function mountHome(root) {
       </a>`;
   }).join("");
 
+  // 이응은 보통 손을 흔든다. 사흘 넘게 안 왔으면 졸고 있다 —
+  // 매일 오는 학습자에게는 보이지 않는다.
+  const away = KC.store.daysAway();
+  const mood = away !== null && away >= 3 ? "sleepy" : "basic";
+
   root.innerHTML = `
     <div class="page">
       ${KC.siteHeader("home")}
@@ -38,11 +43,20 @@ KC.mountHome = function mountHome(root) {
           <div class="folder soon">
             <span class="folder-label">곧 추가돼요</span>
             <p class="folder-gloss">More decks coming soon</p>
-            <svg class="soon-art" aria-hidden="true"><use href="#ieung-wave"/></svg>
+            <button class="soon-art" type="button" aria-label="이응 / Ieung">${YJ.ieung(mood)}</button>
           </div>
         </nav>
       </main>
       ${KC.siteFooter()}
     </div>`;
+  // 숨은 재미 — 이응을 누르면 메롱 하고 돌아온다
+  const buddy = root.querySelector(".soon-art");
+  let tease = 0;
+  buddy.addEventListener("click", () => {
+    clearTimeout(tease);
+    buddy.innerHTML = YJ.ieung("tongue");
+    tease = setTimeout(() => { if (buddy.isConnected) buddy.innerHTML = YJ.ieung(mood); }, 2800);
+  });
+
   window.scrollTo(0, 0);
 };

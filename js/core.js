@@ -36,6 +36,17 @@ window.KC = (() => {
     },
     save(id, state) {
       try { localStorage.setItem(this.key(id), JSON.stringify(state)); } catch (e) {}
+    },
+    /** 마지막으로 카드를 넘긴 시각. 졸린 이응을 언제 보일지 정한다 */
+    touch() {
+      try { localStorage.setItem("kcards:last", String(Date.now())); } catch (e) {}
+    },
+    /** 마지막 학습 뒤 지난 날 수. 기록이 없으면 null */
+    daysAway() {
+      try {
+        const t = Number(localStorage.getItem("kcards:last"));
+        return t ? (Date.now() - t) / 864e5 : null;
+      } catch (e) { return null; }
     }
   };
 
