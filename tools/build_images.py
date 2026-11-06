@@ -6,6 +6,8 @@ Usage:
     .venv/bin/python tools/build_images.py --force    # rebuild all
 
 Manifest key = "<deck>/<cardId>" -> img/<deck>/<cardId>.webp
+  "file": "tools/art/x.png" 가 있으면 url 대신 그 파일을 쓴다 — 직접 손본
+  그림(원본 SVG 는 같은 폴더)에 쓴다. url 은 출처 표기용으로 남는다.
   kind "photo": center-crop 4:3, 800x600 webp
   kind "icon" : keep alpha, max 256px webp
 Also writes js/credits-data.js (attribution list shown on the Credits screen).
@@ -60,7 +62,10 @@ def main():
             continue
         os.makedirs(os.path.dirname(out), exist_ok=True)
         try:
-            im = Image.open(BytesIO(fetch(meta["url"])))
+            if meta.get("file"):
+                im = Image.open(os.path.join(ROOT, meta["file"]))
+            else:
+                im = Image.open(BytesIO(fetch(meta["url"])))
             im = photo(im) if meta["kind"] == "photo" else icon(im)
             im.save(out, "WEBP", quality=78, method=6)
             print("ok  ", key, os.path.getsize(out) // 1024, "KB")

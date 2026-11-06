@@ -794,11 +794,11 @@ window.IMAGE_CREDITS = [
  },
  {
   "key": "weather/paeding",
-  "title": "Coat",
-  "author": "Microsoft Fluent Emoji",
-  "license": "MIT",
-  "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
-  "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Coat"
+  "title": "Moncler jacket (recolored)",
+  "author": "Delapouite (game-icons.net)",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "source": "https://game-icons.net/1x1/delapouite/moncler-jacket.html"
  },
  {
   "key": "weather/seonkeurim",

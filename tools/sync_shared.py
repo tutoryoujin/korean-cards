@@ -76,8 +76,10 @@ def css_block(tokens, theme, indent):
                 if theme != "light":
                     continue                # 별칭은 라이트 블록에서 한 번만
                 v = "var(--%s)" % v.strip("{}")
-            else:
+            elif theme in v:
                 v = v[theme]
+            else:
+                continue                    # 라이트 값만 있는 토큰 — 다크에서도 같은 값을 쓴다
             lines.append("%s--%s: %s;" % (indent, t["name"], v))
         if not lines:                       # 다크에서 통째로 빠지는 묶음
             continue
@@ -95,6 +97,8 @@ SECTIONS = [
      "악센트 8쌍 — -bg 와 -ink 는 쌍이다. 섞으면 한쪽 테마에서 글자가 안 보인다"),
     (["ieung-body", "ieung-limb", "ieung-face", "ieung-blush"],
      "마스코트 이응 — 다크에서도 밝게 남는다. blue-bg 의 별칭이 아니다"),
+    (["ieung-light", "ieung-shade", "ieung-stem-light", "ieung-stem-dark", "ieung-cheek"],
+     "입체 이응 — 테마가 바뀌어도 같은 값이라 라이트 블록에만 있다"),
     (["sun", "sat", "special"], "달력 전용"),
     ([t for t in ("cal-year", "cal-month", "cal-day", "cal-week", "ok", "bad")
       for t in (t + "-bg", t + "-ink")],
@@ -136,7 +140,7 @@ def build_tokens_css():
    shared/tokens.json 에서 tools/sync_shared.py 가 생성한다. 직접 고치지 말 것.
    값을 바꾸려면 디자인 시스템 아티팩트에서 고치고 tokens.json 을 교체한 뒤
    스크립트를 다시 돌린다.
-   https://claude.ai/artifact/C1LfGgisHTtDbmy7NyoUtF
+   https://claude.ai/artifact/CEpgfyaaxJuP8MysgFHWbH
 
    다크는 세 상태를 전부 정의한다. @media 안에만 있는 색이 하나라도 있으면
    사용자가 테마를 직접 고른 순간 그 색만 빠진다. */

@@ -23,6 +23,7 @@ KC.mountStudy = function mountStudy(root, deck) {
       </div>
       <main class="stage" data-el="stage"></main>
       <div class="actions" data-el="actions">
+        <div class="react" data-el="react" aria-hidden="true"></div>
         <button class="btn" data-act="miss" type="button"><span class="ko">못 외웠어요</span><span class="en">Not memorized</span></button>
         <button class="btn known" data-act="know" type="button"><span class="ko">외웠어요</span><span class="en">Memorized</span></button>
       </div>
@@ -46,6 +47,7 @@ KC.mountStudy = function mountStudy(root, deck) {
   let state = KC.validState(deck, saved) ? saved : freshState();
   const save = () => store.save(deck.id, state);
   let busy = false, suppressClick = false, celebrateNext = false, alive = true;
+  let streak = 0, reactTimer = 0;
 
   const card = () => stage.querySelector(".card");
 
@@ -155,7 +157,7 @@ KC.mountStudy = function mountStudy(root, deck) {
     if (state.missed.length === 0) {
       stage.innerHTML = `
         <section class="panel">
-          <div class="panel-mascot"><span class="pop" data-act="party" role="button" tabindex="0" aria-label="다시 축하하기 / Celebrate again"><svg aria-hidden="true"><use href="#ieung"/></svg></span></div>
+          <div class="panel-mascot"><span class="pop" data-act="party" role="button" tabindex="0" aria-label="다시 축하하기 / Celebrate again">${YJ.ieung("proud")}</span></div>
           <h2>모두 외웠어요!</h2>
           <p class="sub-en">You memorized them all!</p>
           <p>${r}회차 만에 ${esc(deck.unit.ko)} ${total}개를 다 외웠어요.<span class="p-en">You memorized all ${total} ${esc(deck.unit.en)} in ${r} ${r === 1 ? "round" : "rounds"}.</span></p>
@@ -173,7 +175,7 @@ KC.mountStudy = function mountStudy(root, deck) {
       const left = state.missed.length;
       stage.innerHTML = `
         <section class="panel">
-          <div class="emoji" aria-hidden="true">💪</div>
+          <div class="panel-mascot">${YJ.ieung("yay")}</div>
           <h2>${r}회차 끝!</h2>
           <p class="sub-en">Round ${r} done!</p>
           <p>이번에 ${state.learnedThisRound}개를 외웠어요. 아직 ${left}개가 남았어요.<span class="p-en">You memorized ${state.learnedThisRound} this time. ${left} still left.</span></p>
@@ -315,6 +317,22 @@ KC.mountStudy = function mountStudy(root, deck) {
     if (state.phase === "card") renderCard(); else renderRoundEnd();
   }
 
+  /* 정답이면 신나요, 다섯 장 연속이면 놀라요, 오답이면 헷갈려요.
+     카드 밖, 버튼 바로 위로 잠깐 올라왔다 내려간다.
+     슬픈 이응은 없다 — 오답에도 "어? 다시!" 정도의 무게. */
+  function react(known) {
+    const box = el("react");
+    streak = known ? streak + 1 : 0;
+    const mood = !known ? "huh" : streak % 5 === 0 ? "wow" : "yay";
+    box.innerHTML = YJ.ieung(mood);
+    box.classList.remove("show");
+    box.classList.toggle("miss", !known);
+    void box.offsetWidth;  // 연달아 눌러도 처음부터 다시 올라오게
+    box.classList.add("show");
+    clearTimeout(reactTimer);
+    reactTimer = setTimeout(() => box.classList.remove("show"), 1100);
+  }
+
   function answer(known) {
     if (busy || state.phase !== "card") return;
     const id = state.queue[state.index];
@@ -325,6 +343,9 @@ KC.mountStudy = function mountStudy(root, deck) {
       if (state.missed.length === 0) celebrateNext = true;
     }
     save();
+    KC.store.touch();
+    // 회차가 끝나면 결과 화면에 이응이 따로 선다. 한 화면에 이응은 하나.
+    if (state.phase === "card") react(known);
 
     const cardEl = card();
     if (cardEl && !reduceMotion) {
@@ -369,6 +390,7 @@ KC.mountStudy = function mountStudy(root, deck) {
 
   return function cleanup() {
     alive = false;
+    clearTimeout(reactTimer);
     stopConfetti();
     document.removeEventListener("keydown", onKey);
     document.body.classList.remove("studying");
