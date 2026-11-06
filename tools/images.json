@@ -727,5 +727,185 @@
     "license": "MIT",
     "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
     "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Hotel"
+  },
+  "weather/nalssi": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sun%20behind%20cloud/3D/sun_behind_cloud_3d.png",
+    "title": "Sun behind cloud",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Sun%20behind%20cloud"
+  },
+  "weather/ilgiyebo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Television/3D/television_3d.png",
+    "title": "Television",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Television"
+  },
+  "weather/malgayo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sun/3D/sun_3d.png",
+    "title": "Sun",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Sun"
+  },
+  "weather/heuryeoyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cloud/3D/cloud_3d.png",
+    "title": "Cloud",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Cloud"
+  },
+  "weather/biga-wayo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cloud%20with%20rain/3D/cloud_with_rain_3d.png",
+    "title": "Cloud with rain",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Cloud%20with%20rain"
+  },
+  "weather/nuni-wayo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cloud%20with%20snow/3D/cloud_with_snow_3d.png",
+    "title": "Cloud with snow",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Cloud%20with%20snow"
+  },
+  "weather/barami-bureoyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Leaf%20fluttering%20in%20wind/3D/leaf_fluttering_in_wind_3d.png",
+    "title": "Leaf fluttering in wind",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Leaf%20fluttering%20in%20wind"
+  },
+  "weather/deowoyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hot%20face/3D/hot_face_3d.png",
+    "title": "Hot face",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Hot%20face"
+  },
+  "weather/chuwoyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cold%20face/3D/cold_face_3d.png",
+    "title": "Cold face",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Cold%20face"
+  },
+  "weather/ttatteuthaeyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sun%20with%20face/3D/sun_with_face_3d.png",
+    "title": "Sun with face",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Sun%20with%20face"
+  },
+  "weather/siwonhaeyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Relieved%20face/3D/relieved_face_3d.png",
+    "title": "Relieved face",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Relieved%20face"
+  },
+  "weather/ssalssalhaeyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Fallen%20leaf/3D/fallen_leaf_3d.png",
+    "title": "Fallen leaf",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Fallen%20leaf"
+  },
+  "weather/seuphaeyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Droplet/3D/droplet_3d.png",
+    "title": "Droplet",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Droplet"
+  },
+  "weather/jangma": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Umbrella%20with%20rain%20drops/3D/umbrella_with_rain_drops_3d.png",
+    "title": "Umbrella with rain drops",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Umbrella%20with%20rain%20drops"
+  },
+  "weather/taepung": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cyclone/3D/cyclone_3d.png",
+    "title": "Cyclone",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Cyclone"
+  },
+  "weather/misemeonji": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Face%20with%20medical%20mask/3D/face_with_medical_mask_3d.png",
+    "title": "Face with medical mask",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Face%20with%20medical%20mask"
+  },
+  "weather/sonagi": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cloud%20with%20lightning%20and%20rain/3D/cloud_with_lightning_and_rain_3d.png",
+    "title": "Cloud with lightning and rain",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Cloud%20with%20lightning%20and%20rain"
+  },
+  "weather/usan": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Closed%20umbrella/3D/closed_umbrella_3d.png",
+    "title": "Closed umbrella",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Closed%20umbrella"
+  },
+  "weather/paeding": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Coat/3D/coat_3d.png",
+    "title": "Coat",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Coat"
+  },
+  "weather/seonkeurim": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Lotion%20bottle/3D/lotion_bottle_3d.png",
+    "title": "Lotion bottle",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Lotion%20bottle"
   }
 }
