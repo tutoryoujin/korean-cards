@@ -547,5 +547,185 @@
     "license": "MIT",
     "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
     "source": "https://github.com/microsoft/fluentui-emoji"
+  },
+  "places/pyeonuijeom": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Convenience%20store/3D/convenience_store_3d.png",
+    "title": "Convenience store",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Convenience%20store"
+  },
+  "places/eunhaeng": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bank/3D/bank_3d.png",
+    "title": "Bank",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Bank"
+  },
+  "places/ucheguk": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Postbox/3D/postbox_3d.png",
+    "title": "Postbox",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Postbox"
+  },
+  "places/miyongsil": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Barber%20pole/3D/barber_pole_3d.png",
+    "title": "Barber pole",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Barber%20pole"
+  },
+  "places/baekhwajeom": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Department%20store/3D/department_store_3d.png",
+    "title": "Department store",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Department%20store"
+  },
+  "places/sijang": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Shopping%20cart/3D/shopping_cart_3d.png",
+    "title": "Shopping cart",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Shopping%20cart"
+  },
+  "places/ppangjip": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bread/3D/bread_3d.png",
+    "title": "Bread",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Bread"
+  },
+  "places/matjip": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Fork%20and%20knife%20with%20plate/3D/fork_and_knife_with_plate_3d.png",
+    "title": "Fork and knife with plate",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Fork%20and%20knife%20with%20plate"
+  },
+  "places/kape": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hot%20beverage/3D/hot_beverage_3d.png",
+    "title": "Hot beverage",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Hot%20beverage"
+  },
+  "places/mungujeom": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Pencil/3D/pencil_3d.png",
+    "title": "Pencil",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Pencil"
+  },
+  "places/noraebang": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Microphone/3D/microphone_3d.png",
+    "title": "Microphone",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Microphone"
+  },
+  "places/pcbang": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Desktop%20computer/3D/desktop_computer_3d.png",
+    "title": "Desktop computer",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Desktop%20computer"
+  },
+  "places/jjimjilbang": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hot%20springs/3D/hot_springs_3d.png",
+    "title": "Hot springs",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Hot%20springs"
+  },
+  "places/yeonghwagwan": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Popcorn/3D/popcorn_3d.png",
+    "title": "Popcorn",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Popcorn"
+  },
+  "places/byeongwon": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hospital/3D/hospital_3d.png",
+    "title": "Hospital",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Hospital"
+  },
+  "places/hakgyo": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/School/3D/school_3d.png",
+    "title": "School",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/School"
+  },
+  "places/doseogwan": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Books/3D/books_3d.png",
+    "title": "Books",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Books"
+  },
+  "places/jihacheollyeok": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Metro/3D/metro_3d.png",
+    "title": "Metro",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Metro"
+  },
+  "places/gonghang": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Airplane/3D/airplane_3d.png",
+    "title": "Airplane",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Airplane"
+  },
+  "places/hotel": {
+    "kind": "icon",
+    "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hotel/3D/hotel_3d.png",
+    "title": "Hotel",
+    "author": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "source": "https://github.com/microsoft/fluentui-emoji/tree/main/assets/Hotel"
   }
 }
